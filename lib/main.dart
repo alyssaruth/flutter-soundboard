@@ -3,101 +3,63 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
+
+import 'util/QuoteCategory.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Welcome to Flutter', home: RandomWords());
+    return MaterialApp(title: 'Mitchell & Webb', home: QuotesForCategory(QuoteCategory.mitchell_and_webb));
   }
 }
 
-class RandomWords extends StatefulWidget {
+class QuotesForCategory extends StatefulWidget {
+  final QuoteCategory category;
+
+  QuotesForCategory(this.category);
+
   @override
-  RandomWordsState createState() => RandomWordsState();
+  CategoryState createState() => CategoryState(category);
 }
 
-class RandomWordsState extends State<RandomWords> {
-  final _suggestions = <WordPair>[];
-  final _saved = Set<WordPair>();
-  final _biggerFont = const TextStyle(fontSize: 18.0);
+class CategoryState extends State<QuotesForCategory> {
+  final List<String> quotes = ["bad_miss_1", "bad_miss_2"];
+
+  QuoteCategory category;
+
+  CategoryState(this.category);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    final title = 'Grid List';
+
+    return MaterialApp(
+      title: title,
+      home: Scaffold(
         appBar: AppBar(
-          title: Text('My thing!'),
-          actions: <Widget>[
-            IconButton(icon: Icon(Icons.list), onPressed: _pushSaved),
-          ],
+          title: Text(title),
+          backgroundColor: Colors.purple,
         ),
-        body: _buildSuggestions());
-  }
-
-  void _pushSaved() {
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (BuildContext context) {
-          final Iterable<ListTile> tiles = _saved.map(
-            (WordPair pair) {
-              return ListTile(
-                title: Text(
-                  pair.asPascalCase,
-                  style: _biggerFont,
-                ),
-              );
-            },
-          );
-          final List<Widget> divided = ListTile.divideTiles(
-            context: context,
-            tiles: tiles,
-          ).toList();
-
-          return Scaffold(
-            appBar: AppBar(
-              title: Text('Saved Suggestions'),
-            ),
-            body: ListView(children: divided),
-          );
-        },
+        body: GridView.count(
+          // Create a grid with 2 columns. If you change the scrollDirection to
+          // horizontal, this produces 2 rows.
+          crossAxisCount: 2,
+          // Generate 100 widgets that display their index in the List.
+          children: quotes.map((quote) =>
+            Center(
+              child: Text(
+                '$quote',
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .headline,
+              ),
+            )
+          ).toList()
+        )
       ),
     );
-  }
-
-  Widget _buildSuggestions() {
-    return ListView.builder(
-        padding: const EdgeInsets.all(16.0),
-        itemBuilder: (context, i) {
-          if (i.isOdd) return Divider();
-
-          final index = i ~/ 2;
-          if (index >= _suggestions.length) {
-            _suggestions.addAll(generateWordPairs().take(10));
-          }
-
-          return _buildRow(_suggestions[index]);
-        });
-  }
-
-  Widget _buildRow(WordPair pair) {
-    final saved = _saved.contains(pair);
-    return ListTile(
-        title: Text(
-          pair.asPascalCase,
-          style: _biggerFont,
-        ),
-        trailing: Icon(saved ? Icons.favorite : Icons.favorite_border,
-            color: saved ? Colors.red : null),
-        onTap: () {
-          setState(() {
-            if (saved) {
-              _saved.remove(pair);
-            } else {
-              _saved.add(pair);
-            }
-          });
-        });
   }
 }
