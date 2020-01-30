@@ -1,3 +1,5 @@
-enum QuoteCategory {
-  mitchell_and_webb
+class QuoteCategory {
+  String name;
+
+  QuoteCategory({this.name});
 }
