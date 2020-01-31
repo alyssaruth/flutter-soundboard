@@ -5,8 +5,7 @@
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-
-import 'util/QuoteCategory.dart';
+import 'package:pocket_scat/util/QuotesList.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,36 +14,26 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Mitchell & Webb',
-        home: QuotesForCategory(QuoteCategory(name: 'Mitchell & Webb')));
+        home: QuotesWidget());
   }
 }
 
-class QuotesForCategory extends StatefulWidget {
-  final QuoteCategory category;
-
-  QuotesForCategory(this.category);
+class QuotesWidget extends StatefulWidget {
 
   @override
-  CategoryState createState() => CategoryState(category);
+  QuoteState createState() => QuoteState();
 }
 
-class CategoryState extends State<QuotesForCategory> {
-  final List<String> quotes = ["bad_miss_1", "bad_miss_2"];
+class QuoteState extends State<QuotesWidget> {
   AudioPlayer player;
-
-  QuoteCategory category;
-
-  CategoryState(this.category);
 
   @override
   Widget build(BuildContext context) {
-    final title = category.name;
-
     return MaterialApp(
-      title: title,
+      title: "Pocket Scat",
       home: Scaffold(
           appBar: AppBar(
-            title: Text(title),
+            title: Text("Pocket Scat"),
             backgroundColor: Colors.purple,
           ),
           body: GridView.count(
@@ -56,11 +45,11 @@ class CategoryState extends State<QuotesForCategory> {
                   .map((quote) => Center(
                         child: ListTile(
                             title: Text(
-                              '$quote',
+                              '${quote.name}',
                               style: Theme.of(context).textTheme.headline,
                             ),
                             onTap: () {
-                              playQuote(quote);
+                              playQuote(quote.filename);
                             }),
                       ))
                   .toList())),

@@ -1,8 +1,7 @@
-import 'package:pocket_scat/util/QuoteCategory.dart';
-
 class Quote {
+  String filename;
   String name;
-  QuoteCategory category;
+  String searchStr;
 
-  Quote({this.name, this.category});
+  Quote(this.filename, this.name, this.searchStr);
 }
