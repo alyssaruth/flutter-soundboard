@@ -103,7 +103,7 @@ class QuoteState extends State<QuotesWidget> {
   }
 
   Future playQuote(String filename) async {
-    await player?.pause();
+    await player?.stop();
     player = await AudioCache().play("$filename.wav");
   }
 }
