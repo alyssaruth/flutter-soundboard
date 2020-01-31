@@ -12,9 +12,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Mitchell & Webb',
-        home: QuotesWidget());
+    return MaterialApp(title: 'Pocket Scat', home: QuotesWidget());
   }
 }
 
