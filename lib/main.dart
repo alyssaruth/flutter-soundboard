@@ -42,8 +42,10 @@ class QuoteState extends State<QuotesWidget> {
       } else {
         setState(() {
           searchText = _filter.text;
-          filteredQuotes =
-              ALL_QUOTES.where((q) => q.searchStr.toLowerCase().contains(searchText.toLowerCase())).toList();
+          filteredQuotes = ALL_QUOTES
+              .where((q) =>
+                  q.searchStr.toLowerCase().contains(searchText.toLowerCase()))
+              .toList();
         });
       }
     });
@@ -55,14 +57,14 @@ class QuoteState extends State<QuotesWidget> {
       title: "Pocket Scat",
       home: Scaffold(
           appBar: AppBar(
-              title: _appBarTitle,
-              backgroundColor: Colors.purple,
-              leading:
-                  new IconButton(icon: searchIcon, onPressed: _searchPressed),
+            title: _appBarTitle,
+            backgroundColor: Colors.purple,
+            leading:
+                new IconButton(icon: searchIcon, onPressed: _searchPressed),
             actions: <Widget>[
               IconButton(icon: Icon(Icons.alarm), onPressed: _randomPressed),
-            ],),
-
+            ],
+          ),
           body: GridView.count(
               crossAxisCount: 2,
               children: filteredQuotes
