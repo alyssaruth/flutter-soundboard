@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
 }
 
 class QuotesWidget extends StatefulWidget {
-
   @override
   QuoteState createState() => QuoteState();
 }
