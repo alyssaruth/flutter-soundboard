@@ -12,6 +12,7 @@ dependencies:
 
   cupertino_icons: ^0.1.2
   audioplayers: 0.10.1
+  dart_random_choice: ^0.0.2
 
 dev_dependencies:
   flutter_test:

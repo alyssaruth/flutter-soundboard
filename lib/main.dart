@@ -7,6 +7,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:pocket_scat/util/Quote.dart';
 import 'package:pocket_scat/util/QuotesList.dart';
+import 'package:dart_random_choice/dart_random_choice.dart';
 
 void main() => runApp(MyApp());
 
@@ -57,7 +58,11 @@ class QuoteState extends State<QuotesWidget> {
               title: _appBarTitle,
               backgroundColor: Colors.purple,
               leading:
-                  new IconButton(icon: searchIcon, onPressed: _searchPressed)),
+                  new IconButton(icon: searchIcon, onPressed: _searchPressed),
+            actions: <Widget>[
+              IconButton(icon: Icon(Icons.alarm), onPressed: _randomPressed),
+            ],),
+
           body: GridView.count(
               crossAxisCount: 2,
               children: filteredQuotes
@@ -83,6 +88,7 @@ class QuoteState extends State<QuotesWidget> {
           controller: _filter,
           decoration: new InputDecoration(
               prefixIcon: new Icon(Icons.search), hintText: 'Search...'),
+          autofocus: true,
         );
       } else {
         this.searchIcon = new Icon(Icons.search);
@@ -91,6 +97,11 @@ class QuoteState extends State<QuotesWidget> {
         _filter.clear();
       }
     });
+  }
+
+  Future _randomPressed() async {
+    final element = randomChoice<Quote>(filteredQuotes);
+    await playQuote(element.filename);
   }
 
   Future playQuote(String filename) async {
