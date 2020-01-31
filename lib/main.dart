@@ -5,6 +5,7 @@
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:pocket_scat/util/Quote.dart';
 import 'package:pocket_scat/util/QuotesList.dart';
 
 void main() => runApp(MyApp());
@@ -22,7 +23,30 @@ class QuotesWidget extends StatefulWidget {
 }
 
 class QuoteState extends State<QuotesWidget> {
+  final TextEditingController _filter = new TextEditingController();
+
   AudioPlayer player;
+  String searchText = "";
+  List<Quote> filteredQuotes = ALL_QUOTES;
+  Icon searchIcon = new Icon(Icons.search);
+  Widget _appBarTitle = new Text('Pocket Scat');
+
+  QuoteState() {
+    _filter.addListener(() {
+      if (_filter.text.isEmpty) {
+        setState(() {
+          searchText = "";
+          filteredQuotes = ALL_QUOTES;
+        });
+      } else {
+        setState(() {
+          searchText = _filter.text;
+          filteredQuotes =
+              ALL_QUOTES.where((q) => q.searchStr.toLowerCase().contains(searchText.toLowerCase())).toList();
+        });
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,15 +54,13 @@ class QuoteState extends State<QuotesWidget> {
       title: "Pocket Scat",
       home: Scaffold(
           appBar: AppBar(
-            title: Text("Pocket Scat"),
-            backgroundColor: Colors.purple,
-          ),
+              title: _appBarTitle,
+              backgroundColor: Colors.purple,
+              leading:
+                  new IconButton(icon: searchIcon, onPressed: _searchPressed)),
           body: GridView.count(
-              // Create a grid with 2 columns. If you change the scrollDirection to
-              // horizontal, this produces 2 rows.
               crossAxisCount: 2,
-              // Generate 100 widgets that display their index in the List.
-              children: quotes
+              children: filteredQuotes
                   .map((quote) => Center(
                         child: ListTile(
                             title: Text(
@@ -51,6 +73,24 @@ class QuoteState extends State<QuotesWidget> {
                       ))
                   .toList())),
     );
+  }
+
+  void _searchPressed() {
+    setState(() {
+      if (searchIcon.icon == Icons.search) {
+        searchIcon = new Icon(Icons.close);
+        this._appBarTitle = new TextField(
+          controller: _filter,
+          decoration: new InputDecoration(
+              prefixIcon: new Icon(Icons.search), hintText: 'Search...'),
+        );
+      } else {
+        this.searchIcon = new Icon(Icons.search);
+        this._appBarTitle = new Text('Pocket Scat');
+        filteredQuotes = ALL_QUOTES;
+        _filter.clear();
+      }
+    });
   }
 
   Future playQuote(String filename) async {
