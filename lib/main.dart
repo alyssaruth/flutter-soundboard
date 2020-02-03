@@ -1,5 +1,6 @@
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pocket_scat/util/Quote.dart';
 import 'package:pocket_scat/util/QuotesList.dart';
@@ -62,18 +63,31 @@ class QuoteState extends State<QuotesWidget> {
             ],
           ),
           body: GridView.count(
-              crossAxisCount: 2,
-              childAspectRatio: 2,
+              crossAxisCount: 3,
+              childAspectRatio: 1,
+              padding: const EdgeInsets.all(0),
               children: filteredQuotes
-                  .map((quote) => Center(
-                        child: ListTile(
-                            title: Text(
-                              '${quote.name}',
-                              style: Theme.of(context).textTheme.title,
+                  .map((quote) => CupertinoButton(
+                        child: Container(
+                          height: 200,
+                          decoration: BoxDecoration(
+                            color: Colors.redAccent,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Container(
+                            margin: EdgeInsets.fromLTRB(15, 15, 15, 0),
+                            child: Text(
+                              quote.name,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600),
                             ),
-                            onTap: () {
-                              playQuote(quote.filename);
-                            }),
+                          ),
+                        ),
+                        onPressed: () {
+                          playQuote(quote.filename);
+                        },
                       ))
                   .toList())),
     );
