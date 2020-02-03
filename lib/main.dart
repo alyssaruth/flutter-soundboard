@@ -63,12 +63,13 @@ class QuoteState extends State<QuotesWidget> {
           ),
           body: GridView.count(
               crossAxisCount: 2,
+              childAspectRatio: 2,
               children: filteredQuotes
                   .map((quote) => Center(
                         child: ListTile(
                             title: Text(
                               '${quote.name}',
-                              style: Theme.of(context).textTheme.headline,
+                              style: Theme.of(context).textTheme.title,
                             ),
                             onTap: () {
                               playQuote(quote.filename);
