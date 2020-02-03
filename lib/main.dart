@@ -58,9 +58,6 @@ class QuoteState extends State<QuotesWidget> {
             backgroundColor: Colors.purple,
             leading:
                 new IconButton(icon: searchIcon, onPressed: _searchPressed),
-            actions: <Widget>[
-              IconButton(icon: Icon(Icons.alarm), onPressed: _randomPressed),
-            ],
           ),
           body: GridView.count(
               crossAxisCount: 3,
@@ -89,7 +86,12 @@ class QuoteState extends State<QuotesWidget> {
                           playQuote(quote.filename);
                         },
                       ))
-                  .toList())),
+                  .toList()),
+          floatingActionButton: FloatingActionButton(
+            onPressed: _randomPressed,
+            child: Icon(Icons.play_arrow),
+            backgroundColor: Colors.green,
+          )),
     );
   }
 
