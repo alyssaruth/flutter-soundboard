@@ -6,6 +6,8 @@ import 'package:pocket_scat/util/Quote.dart';
 import 'package:pocket_scat/util/QuotesList.dart';
 import 'package:dart_random_choice/dart_random_choice.dart';
 
+import 'util/QuoteCategory.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -40,8 +42,7 @@ class QuoteState extends State<QuotesWidget> {
         setState(() {
           searchText = _filter.text;
           filteredQuotes = ALL_QUOTES
-              .where((q) =>
-                  q.searchStr.toLowerCase().contains(searchText.toLowerCase()))
+              .where((q) => q.containsSearchTerm(searchText))
               .toList();
         });
       }
@@ -66,9 +67,10 @@ class QuoteState extends State<QuotesWidget> {
               children: filteredQuotes
                   .map((quote) => CupertinoButton(
                         child: Container(
+                          width: 200,
                           height: 200,
                           decoration: BoxDecoration(
-                            color: Colors.redAccent,
+                            color: hmCategoryToColor[quote.source.category],
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Container(
