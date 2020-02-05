@@ -2,12 +2,12 @@ import 'QuoteCategory.dart';
 import 'QuoteSource.dart';
 
 class Quote {
-  String filename;
-  String name;
-  QuoteSource source;
-  String searchStr;
+  final String filename;
+  final String name;
+  final QuoteSource source;
+  final String searchStr;
 
-  Quote(this.filename, this.name, this.source, this.searchStr);
+  const Quote(this.filename, this.name, this.source, this.searchStr);
 
   bool containsSearchTerm(String searchTerm) {
     if (searchTerm.isEmpty) return true;

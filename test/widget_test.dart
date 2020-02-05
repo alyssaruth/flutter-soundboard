@@ -9,22 +9,40 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:pocket_scat/main.dart';
+import 'package:pocket_scat/util/Quote.dart';
+import 'package:pocket_scat/util/QuoteSource.dart';
+
+const PIECE_OF_YOUR_BRAIN = Quote("fawlty_piece_of_your_brain", "Piece of your brain", SRC_FAWLTY_TOWERS, "Is this a piece of your brain Basil");
+const ERRONEOUS_DISH = Quote("fawlty_erroneous_dish", "Erroneous dish", SRC_FAWLTY_TOWERS, "I have been given an erroneous dish");
+const VERY_NICE_BRIAN = Quote("bean_very_nice_brian", "Very nice Brian", SRC_BEAN, "very nice brian");
+const BAD_MISS = Quote("mitchell_bad_miss_1", "Bad Miss 1", SRC_MITCHELL_AND_WEBB, "Oh and that's a bad miss");
+
+const TEST_QUOTES = [PIECE_OF_YOUR_BRAIN, ERRONEOUS_DISH, VERY_NICE_BRIAN, BAD_MISS];
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+  testWidgets('Should search by quote content', (WidgetTester tester) async {
+    await tester.pumpWidget(PocketScat(TEST_QUOTES));
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    expect(find.text('Erroneous dish'), findsOneWidget);
+    expect(find.text('Piece of your brain'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+    // Tap the search icon and enter text
+    await tester.tap(find.byIcon(Icons.search));
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    await tester.enterText(find.byType(TextField), 'piece');
+    await tester.pump();
+
+    // Verify that our search has been applied
+    expect(find.text('Erroneous dish'), findsNothing);
+    expect(find.text('Piece of your brain'), findsOneWidget);
+
+    // Close the search
+    await tester.tap(find.byIcon(Icons.close));
+    await tester.pump();
+
+    // Search should be cancelled
+    expect(find.text('Erroneous dish'), findsOneWidget);
+    expect(find.text('Piece of your brain'), findsOneWidget);
   });
 }

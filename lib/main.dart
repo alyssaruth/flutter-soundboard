@@ -8,35 +8,46 @@ import 'package:dart_random_choice/dart_random_choice.dart';
 
 import 'util/QuoteCategory.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(PocketScat(ALL_QUOTES));
 
-class MyApp extends StatelessWidget {
+class PocketScat extends StatelessWidget {
+  final List<Quote> _allQuotes;
+
+  PocketScat(this._allQuotes);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Pocket Scat', home: QuotesWidget());
+    return MaterialApp(title: 'Pocket Scat', home: QuotesWidget(_allQuotes));
   }
 }
 
 class QuotesWidget extends StatefulWidget {
+  final List<Quote> _allQuotes;
+
+  QuotesWidget(this._allQuotes);
+
   @override
-  QuoteState createState() => QuoteState();
+  QuoteState createState() => QuoteState(_allQuotes);
 }
 
 class QuoteState extends State<QuotesWidget> {
   final TextEditingController _filter = new TextEditingController();
+  final List<Quote> _allQuotes;
 
   AudioPlayer _audioPlayer;
   String _searchText = "";
-  List<Quote> _filteredQuotes = ALL_QUOTES;
+  List<Quote> _filteredQuotes = [];
   Icon _searchIcon = new Icon(Icons.search);
   Widget _appBarTitle = new Text('Pocket Scat');
 
-  QuoteState() {
+  QuoteState(this._allQuotes) {
+    _filteredQuotes = _allQuotes;
+
     _filter.addListener(() {
       setState(() {
         _searchText = _filter.text;
-        _filteredQuotes = ALL_QUOTES.where((q) => q.containsSearchTerm(_searchText))
-            .toList();
+        _filteredQuotes =
+            _allQuotes.where((q) => q.containsSearchTerm(_searchText)).toList();
       });
     });
   }
@@ -56,9 +67,7 @@ class QuoteState extends State<QuotesWidget> {
               crossAxisCount: 3,
               childAspectRatio: 1,
               padding: const EdgeInsets.all(0),
-              children: _filteredQuotes
-                  .map(_getQuoteButton)
-                  .toList()),
+              children: _filteredQuotes.map(_getQuoteButton).toList()),
           floatingActionButton: FloatingActionButton(
             onPressed: _randomPressed,
             child: Icon(Icons.play_arrow),
@@ -67,30 +76,29 @@ class QuoteState extends State<QuotesWidget> {
     );
   }
 
-  CupertinoButton _getQuoteButton(Quote quote) =>
-    CupertinoButton(
-      child: Container(
-        width: 200,
-        height: 200,
-        decoration: BoxDecoration(
-          color: hmCategoryToColor[quote.source.category],
-          borderRadius: BorderRadius.circular(12),
-        ),
+  CupertinoButton _getQuoteButton(Quote quote) => CupertinoButton(
         child: Container(
-          margin: EdgeInsets.fromLTRB(15, 15, 15, 0),
-          child: Text(
-            quote.name,
-            style: TextStyle(
-                color: Colors.white,
-                fontSize: 15,
-                fontWeight: FontWeight.w600),
+          width: 200,
+          height: 200,
+          decoration: BoxDecoration(
+            color: hmCategoryToColor[quote.source.category],
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Container(
+            margin: EdgeInsets.fromLTRB(15, 15, 15, 0),
+            child: Text(
+              quote.name,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600),
+            ),
           ),
         ),
-      ),
-      onPressed: () {
-        playQuote(quote.filename);
-      },
-    );
+        onPressed: () {
+          playQuote(quote.filename);
+        },
+      );
 
   void _searchPressed() {
     setState(() {
@@ -105,8 +113,9 @@ class QuoteState extends State<QuotesWidget> {
       } else {
         this._searchIcon = new Icon(Icons.search);
         this._appBarTitle = new Text('Pocket Scat');
-        _filteredQuotes = ALL_QUOTES;
+        _searchText = "";
         _filter.clear();
+        _filteredQuotes = _allQuotes;
       }
     });
   }
