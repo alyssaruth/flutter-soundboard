@@ -96,7 +96,7 @@ class QuoteState extends State<QuotesWidget> {
           ),
         ),
         onPressed: () {
-          playQuote(quote.filename);
+          _playQuote(quote.filename);
         },
       );
 
@@ -122,10 +122,10 @@ class QuoteState extends State<QuotesWidget> {
 
   Future _randomPressed() async {
     final element = randomChoice<Quote>(_filteredQuotes);
-    await playQuote(element.filename);
+    await _playQuote(element.filename);
   }
 
-  Future playQuote(String filename) async {
+  Future _playQuote(String filename) async {
     await _audioPlayer?.stop();
     _audioPlayer = await AudioCache().play("$filename.wav");
   }
