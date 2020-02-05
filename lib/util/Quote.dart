@@ -10,6 +10,8 @@ class Quote {
   Quote(this.filename, this.name, this.source, this.searchStr);
 
   bool containsSearchTerm(String searchTerm) {
+    if (searchTerm.isEmpty) return true;
+
     final lowerCased = searchTerm.toLowerCase();
 
     return searchStr.toLowerCase().contains(lowerCased)

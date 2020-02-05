@@ -17,7 +17,7 @@ const Map<QuoteCategory, String> QuoteCategoryDesc = {
 };
 
 const Map<QuoteCategory, MaterialAccentColor> hmCategoryToColor = {
-  QuoteCategory.SKETCH: Colors.amberAccent,
+  QuoteCategory.SKETCH: Colors.orangeAccent,
   QuoteCategory.SITCOM: Colors.redAccent,
   QuoteCategory.GAME: Colors.blueAccent,
   QuoteCategory.KIDS_TV: Colors.greenAccent,
