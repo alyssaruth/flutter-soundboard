@@ -20,7 +20,7 @@ const BAD_MISS = Quote("mitchell_bad_miss_1", "Bad Miss 1", SRC_MITCHELL_AND_WEB
 const TEST_QUOTES = [PIECE_OF_YOUR_BRAIN, ERRONEOUS_DISH, VERY_NICE_BRIAN, BAD_MISS];
 
 void main() {
-  testWidgets('Should search by quote content', (WidgetTester tester) async {
+  testWidgets('Should search by quote content, and clear the search when cancelled', (WidgetTester tester) async {
     await tester.pumpWidget(PocketScat(TEST_QUOTES));
 
     expect(find.text('Erroneous dish'), findsOneWidget);
@@ -44,5 +44,41 @@ void main() {
     // Search should be cancelled
     expect(find.text('Erroneous dish'), findsOneWidget);
     expect(find.text('Piece of your brain'), findsOneWidget);
+  });
+
+  testWidgets('Should search by quote category', (WidgetTester tester) async {
+    await tester.pumpWidget(PocketScat(TEST_QUOTES));
+
+    expect(find.text('Bad Miss 1'), findsOneWidget);
+    expect(find.text('Piece of your brain'), findsOneWidget);
+
+    // Tap the search icon and enter text
+    await tester.tap(find.byIcon(Icons.search));
+    await tester.pump();
+
+    await tester.enterText(find.byType(TextField), 'sketch');
+    await tester.pump();
+
+    // Verify that our search has been applied
+    expect(find.text('Piece of your brain'), findsNothing);
+    expect(find.text('Bad Miss 1'), findsOneWidget);
+  });
+
+  testWidgets('Should search by quote source', (WidgetTester tester) async {
+    await tester.pumpWidget(PocketScat(TEST_QUOTES));
+
+    expect(find.text('Bad Miss 1'), findsOneWidget);
+    expect(find.text('Piece of your brain'), findsOneWidget);
+
+    // Tap the search icon and enter text
+    await tester.tap(find.byIcon(Icons.search));
+    await tester.pump();
+
+    await tester.enterText(find.byType(TextField), 'fawlty');
+    await tester.pump();
+
+    // Verify that our search has been applied
+    expect(find.text('Piece of your brain'), findsOneWidget);
+    expect(find.text('Bad Miss 1'), findsNothing);
   });
 }
