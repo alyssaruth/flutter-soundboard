@@ -21,10 +21,11 @@ class PocketScat extends StatefulWidget {
 
 class QuoteState extends State<PocketScat> {
   final TextEditingController _filter = new TextEditingController();
+  final TextEditingController _searchCountController =
+      new TextEditingController();
   final List<Quote> _allQuotes;
 
   AudioPlayer _audioPlayer;
-  String _searchText = "";
   List<Quote> _filteredQuotes = [];
   Icon _searchIcon = new Icon(Icons.search);
   Widget _appBarTitle = new Text('Pocket Scat');
@@ -32,13 +33,7 @@ class QuoteState extends State<PocketScat> {
   QuoteState(this._allQuotes) {
     _filteredQuotes = _allQuotes;
 
-    _filter.addListener(() {
-      setState(() {
-        _searchText = _filter.text;
-        _filteredQuotes =
-            _allQuotes.where((q) => q.containsSearchTerm(_searchText)).toList();
-      });
-    });
+    _filter.addListener(_searchChanged);
   }
 
   @override
@@ -93,23 +88,38 @@ class QuoteState extends State<PocketScat> {
         },
       );
 
+  void _searchChanged() {
+    setState(() {
+      _filteredQuotes =
+          _allQuotes.where((q) => q.containsSearchTerm(_filter.text)).toList();
+    });
+
+    _searchCountController.text = "${_filteredQuotes.length}";
+  }
+
   void _searchPressed() {
     setState(() {
       if (_searchIcon.icon == Icons.search) {
         _searchIcon = new Icon(Icons.close);
-        this._appBarTitle = new TextField(
-          controller: _filter,
-          decoration: new InputDecoration(
-            prefixIcon: new Icon(Icons.search, color: Colors.white),
-            hintText: 'Search...',
-          ),
-          autofocus: true,
-          style: TextStyle(color: Colors.white)
-        );
+        _appBarTitle = new TextField(
+            controller: _filter,
+            decoration: new InputDecoration(
+              prefixIcon: new Icon(Icons.search, color: Colors.white),
+              hintText: 'Search...',
+              suffix: new SizedBox(
+                width: 40,
+                child: new TextField(
+                    controller: _searchCountController,
+                    readOnly: true,
+                    style: TextStyle(color: Colors.white),
+                decoration: null,),
+              ),
+            ),
+            autofocus: true,
+            style: TextStyle(color: Colors.white));
       } else {
-        this._searchIcon = new Icon(Icons.search);
-        this._appBarTitle = new Text('Pocket Scat');
-        _searchText = "";
+        _searchIcon = new Icon(Icons.search);
+        _appBarTitle = new Text('Pocket Scat');
         _filter.clear();
         _filteredQuotes = _allQuotes;
       }
