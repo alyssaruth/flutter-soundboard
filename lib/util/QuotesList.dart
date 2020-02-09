@@ -10,7 +10,7 @@ const List<Quote> ALL_QUOTES = [
   Quote("tr_gut_rot", "Gut rot", SRC_TOMB_RAIDER, "have faith fabio not gut rot"),
   Quote("tr_lifes_work_well", "You not know my life's work well?", SRC_TOMB_RAIDER, "you not know my life's work well? you sure you're youre not here for them?"),
   Quote("tr_milkshake", "Milkshake", SRC_TOMB_RAIDER, "come let us get off this roof and i will buy you a milkshake"),
-  Quote("tr_move_to_strike", "Move to strike", SRC_TOMB_RAIDER, "what is this i move to strike and yet cannot verdilect"),
+  Quote("tr_move_to_strike", "Move to strike", SRC_TOMB_RAIDER, "how is this i move to strike and yet cannot verdilect"),
   Quote("tr_tony_guy_on_my_keyring", "Tony guy on my keyring", SRC_TOMB_RAIDER, "there's theres a tony guy on my keyring"),
   Quote("tr_what_did_i_tell_you", "What did I tell you", SRC_TOMB_RAIDER, "what did I tell you"),
   Quote("worms_got_one", "Got one!", SRC_WORMS, "got one"),

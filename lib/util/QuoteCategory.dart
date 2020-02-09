@@ -16,10 +16,10 @@ const Map<QuoteCategory, String> QuoteCategoryDesc = {
   QuoteCategory.MISC: "Misc",
 };
 
-const Map<QuoteCategory, MaterialAccentColor> hmCategoryToColor = {
+const Map<QuoteCategory, ColorSwatch> hmCategoryToColor = {
   QuoteCategory.SKETCH: Colors.orangeAccent,
   QuoteCategory.SITCOM: Colors.redAccent,
   QuoteCategory.GAME: Colors.blueAccent,
-  QuoteCategory.KIDS_TV: Colors.greenAccent,
+  QuoteCategory.KIDS_TV: Colors.teal,
   QuoteCategory.MISC: Colors.purpleAccent,
 };

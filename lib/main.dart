@@ -10,27 +10,16 @@ import 'util/QuoteCategory.dart';
 
 void main() => runApp(PocketScat(ALL_QUOTES));
 
-class PocketScat extends StatelessWidget {
+class PocketScat extends StatefulWidget {
   final List<Quote> _allQuotes;
 
   PocketScat(this._allQuotes);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(title: 'Pocket Scat', home: QuotesWidget(_allQuotes));
-  }
-}
-
-class QuotesWidget extends StatefulWidget {
-  final List<Quote> _allQuotes;
-
-  QuotesWidget(this._allQuotes);
-
-  @override
   QuoteState createState() => QuoteState(_allQuotes);
 }
 
-class QuoteState extends State<QuotesWidget> {
+class QuoteState extends State<PocketScat> {
   final TextEditingController _filter = new TextEditingController();
   final List<Quote> _allQuotes;
 
@@ -56,10 +45,14 @@ class QuoteState extends State<QuotesWidget> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Pocket Scat",
+      theme: ThemeData(
+        primaryColor: Colors.purple,
+        accentColor: Colors.purpleAccent,
+        hintColor: Colors.white70,
+      ),
       home: Scaffold(
           appBar: AppBar(
             title: _appBarTitle,
-            backgroundColor: Colors.purple,
             leading:
                 new IconButton(icon: _searchIcon, onPressed: _searchPressed),
           ),
@@ -107,8 +100,11 @@ class QuoteState extends State<QuotesWidget> {
         this._appBarTitle = new TextField(
           controller: _filter,
           decoration: new InputDecoration(
-              prefixIcon: new Icon(Icons.search), hintText: 'Search...'),
+            prefixIcon: new Icon(Icons.search, color: Colors.white),
+            hintText: 'Search...',
+          ),
           autofocus: true,
+          style: TextStyle(color: Colors.white)
         );
       } else {
         this._searchIcon = new Icon(Icons.search);
