@@ -6,8 +6,6 @@ import 'package:pocket_scat/util/Quote.dart';
 import 'package:pocket_scat/util/QuotesList.dart';
 import 'package:dart_random_choice/dart_random_choice.dart';
 
-import 'util/QuoteCategory.dart';
-
 void main() => runApp(PocketScat(ALL_QUOTES));
 
 class PocketScat extends StatefulWidget {
@@ -41,6 +39,7 @@ class QuoteState extends State<PocketScat> {
     return MaterialApp(
       title: "Pocket Scat",
       theme: ThemeData(
+        brightness: Brightness.dark,
         primaryColor: Colors.purple,
         accentColor: Colors.purpleAccent,
         hintColor: Colors.white70,
@@ -52,7 +51,7 @@ class QuoteState extends State<PocketScat> {
                 new IconButton(icon: _searchIcon, onPressed: _searchPressed),
           ),
           body: GridView.count(
-              crossAxisCount: 3,
+              crossAxisCount: 2,
               childAspectRatio: 1,
               padding: const EdgeInsets.all(0),
               children: _filteredQuotes.map(_getQuoteButton).toList()),
@@ -69,18 +68,29 @@ class QuoteState extends State<PocketScat> {
           width: 200,
           height: 200,
           decoration: BoxDecoration(
-            color: hmCategoryToColor[quote.source.category],
+            image: new DecorationImage(
+                image: new AssetImage('assets/images/mitchell_snooker.png')),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Container(
-            margin: EdgeInsets.fromLTRB(15, 15, 15, 0),
-            child: Text(
-              quote.name,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600),
-            ),
+            alignment: Alignment.bottomCenter,
+            margin: EdgeInsets.fromLTRB(0, 140, 0, 0),
+            width: 200,
+            height: 40,
+            decoration: BoxDecoration(
+                color: Color.fromRGBO(0, 0, 0, 0.75),
+                borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(12),
+                    bottomLeft: Radius.circular(12))),
+            child: Container(
+                margin: EdgeInsets.fromLTRB(5, 0, 5, 8),
+                child: Text(
+                  quote.name,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600),
+                )),
           ),
         ),
         onPressed: () {
@@ -109,10 +119,11 @@ class QuoteState extends State<PocketScat> {
               suffix: new SizedBox(
                 width: 40,
                 child: new TextField(
-                    controller: _searchCountController,
-                    readOnly: true,
-                    style: TextStyle(color: Colors.white),
-                decoration: null,),
+                  controller: _searchCountController,
+                  readOnly: true,
+                  style: TextStyle(color: Colors.white),
+                  decoration: null,
+                ),
               ),
             ),
             autofocus: true,
