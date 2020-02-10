@@ -4,8 +4,9 @@ class QuoteSource {
   final String name;
   final QuoteCategory category;
   final String searchTerms;
+  final String imageName;
 
-  const QuoteSource(this.name, this.category, [this.searchTerms]);
+  const QuoteSource(this.name, this.category, this.imageName, [this.searchTerms]);
 
   bool containsSearchTerm(String searchTerm) {
     return name.toLowerCase().contains(searchTerm)
@@ -13,18 +14,18 @@ class QuoteSource {
   }
 }
 
-const QuoteSource SRC_MITCHELL_AND_WEBB = QuoteSource("Mitchell and Webb", QuoteCategory.SKETCH);
-const QuoteSource SRC_NTNON = QuoteSource("Not the Nine O'Clock News", QuoteCategory.SKETCH);
-const QuoteSource SRC_ROWAN_ATKINSON = QuoteSource("Rowan Atkinson", QuoteCategory.SKETCH);
-const QuoteSource SRC_MONTY_PYTHON = QuoteSource("Monty Python", QuoteCategory.SKETCH);
+const QuoteSource SRC_MITCHELL_AND_WEBB = QuoteSource("Mitchell and Webb", QuoteCategory.SKETCH, "mitchell_snooker");
+const QuoteSource SRC_NTNON = QuoteSource("Not the Nine O'Clock News", QuoteCategory.SKETCH, "ntnon");
+const QuoteSource SRC_ROWAN_ATKINSON = QuoteSource("Rowan Atkinson", QuoteCategory.SKETCH, "rowan_atkinson");
+const QuoteSource SRC_MONTY_PYTHON = QuoteSource("Monty Python", QuoteCategory.SKETCH, "monty_python");
 
-const QuoteSource SRC_FAWLTY_TOWERS = QuoteSource("Fawlty Towers", QuoteCategory.SITCOM, "basil manuel");
-const QuoteSource SRC_BEAN = QuoteSource("Mr. Bean", QuoteCategory.SITCOM);
-const QuoteSource SRC_CYE = QuoteSource("Curb Your Enthusiasm", QuoteCategory.SITCOM, "larry david");
-const QuoteSource SRC_FRIENDS = QuoteSource("Friends", QuoteCategory.SITCOM);
-const QuoteSource SRC_HYACINTH = QuoteSource("Keeping Up Appearances", QuoteCategory.SITCOM, "hyacinth richard bucket");
-const QuoteSource SRC_PARTRIDGE = QuoteSource("Alan Partridge", QuoteCategory.SITCOM);
-const QuoteSource SRC_RED_DWARF = QuoteSource("Red Dwarf", QuoteCategory.SITCOM);
+const QuoteSource SRC_FAWLTY_TOWERS = QuoteSource("Fawlty Towers", QuoteCategory.SITCOM, "fawlty_towers", "basil manuel");
+const QuoteSource SRC_BEAN = QuoteSource("Mr. Bean", QuoteCategory.SITCOM, "bean", "mr bean");
+const QuoteSource SRC_CYE = QuoteSource("Curb Your Enthusiasm", QuoteCategory.SITCOM, "cye", "larry david");
+const QuoteSource SRC_FRIENDS = QuoteSource("Friends", QuoteCategory.SITCOM, "friends");
+const QuoteSource SRC_HYACINTH = QuoteSource("Keeping Up Appearances", QuoteCategory.SITCOM, "onslo", "hyacinth richard bucket");
+const QuoteSource SRC_PARTRIDGE = QuoteSource("Alan Partridge", QuoteCategory.SITCOM, "partridge");
+const QuoteSource SRC_RED_DWARF = QuoteSource("Red Dwarf", QuoteCategory.SITCOM, "red_dwarf");
 const QuoteSource SRC_VM = QuoteSource("One Foot in the Grave", QuoteCategory.SITCOM, "victor meldrew");
 const QuoteSource SRC_FRANK = QuoteSource("Some Mothers do 'Ave 'Em", QuoteCategory.SITCOM, "frank spencer some mothers do ave em");
 const QuoteSource SRC_DADS_ARMY = QuoteSource("Dad's Army", QuoteCategory.SITCOM, "dads army");

@@ -69,7 +69,7 @@ class QuoteState extends State<PocketScat> {
           height: 200,
           decoration: BoxDecoration(
             image: new DecorationImage(
-                image: new AssetImage('assets/images/mitchell_snooker.png')),
+                image: quote.getImage()),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Container(

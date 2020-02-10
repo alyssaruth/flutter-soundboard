@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 import 'QuoteCategory.dart';
 import 'QuoteSource.dart';
 
@@ -17,5 +19,13 @@ class Quote {
     return searchStr.toLowerCase().contains(lowerCased)
         || source.containsSearchTerm(lowerCased)
         || QuoteCategoryDesc[source.category].toLowerCase().contains(lowerCased);
+  }
+
+  AssetImage getImage() {
+    if (source.imageName != null) {
+      return new AssetImage('assets/images/${source.imageName}.png');
+    }
+
+    return new AssetImage('assets/images/abe.jpg');
   }
 }
