@@ -129,7 +129,7 @@ const List<Quote> ALL_QUOTES = [
   Quote("bargain_hunt_swap", "A negotiated swap", SRC_BARGAIN_HUNT, "we have a swap we do love a swap negotiated swap"),
   Quote("chase_day_at_the_office", "Another day at the office", SRC_THE_CHASE, "just another day at the office shaun"),
   Quote("christmas_carol_underdone_turnip", "Underdone turnip", SRC_CHRISTMAS_CAROL, "mouldy cheese an underdone turnip"),
-  Quote("corrie_waste_of_space", "Waste of space", SRC_CORRIE, "yes waste of space roy cropper"),
+  Quote("corrie_waste_of_space", "Waste of space", SRC_CORRIE, "yes waste of space roy cropper", "corrie_roy"),
   Quote("corrie_what_are_you_doing", "What are you doing", SRC_CORRIE, "what are you doing dev alahan"),
   Quote("house_laugh", "Hahahaha!", SRC_HOUSE, "hahaha"),
   Quote("ice_age_doesnt_anyone_care", "Doesn't anyone care?", SRC_ICE_AGE, "isn't there anyone who cares about sid the sloth"),
