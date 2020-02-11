@@ -19,14 +19,11 @@ class PocketScat extends StatefulWidget {
 
 class QuoteState extends State<PocketScat> {
   final TextEditingController _filter = new TextEditingController();
-  final TextEditingController _searchCountController =
-      new TextEditingController();
   final List<Quote> _allQuotes;
 
   AudioPlayer _audioPlayer;
   List<Quote> _filteredQuotes = [];
-  Icon _searchIcon = new Icon(Icons.search);
-  Widget _appBarTitle = new Text('Pocket Scat');
+  bool _searching = false;
 
   QuoteState(this._allQuotes) {
     _filteredQuotes = _allQuotes;
@@ -46,9 +43,10 @@ class QuoteState extends State<PocketScat> {
       ),
       home: Scaffold(
           appBar: AppBar(
-            title: _appBarTitle,
-            leading:
-                new IconButton(icon: _searchIcon, onPressed: _searchPressed),
+            title: _buildAppBar(),
+            leading: new IconButton(
+                icon: new Icon(_searching ? Icons.close : Icons.search),
+                onPressed: _searchPressed),
           ),
           body: GridView.count(
               crossAxisCount: 2,
@@ -68,8 +66,7 @@ class QuoteState extends State<PocketScat> {
           width: 200,
           height: 200,
           decoration: BoxDecoration(
-            image: new DecorationImage(
-                image: quote.getImage()),
+            image: new DecorationImage(image: quote.getImage()),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Container(
@@ -103,38 +100,32 @@ class QuoteState extends State<PocketScat> {
       _filteredQuotes =
           _allQuotes.where((q) => q.containsSearchTerm(_filter.text)).toList();
     });
-
-    _searchCountController.text = "${_filteredQuotes.length}";
   }
 
   void _searchPressed() {
     setState(() {
-      if (_searchIcon.icon == Icons.search) {
-        _searchIcon = new Icon(Icons.close);
-        _appBarTitle = new TextField(
-            controller: _filter,
-            decoration: new InputDecoration(
-              prefixIcon: new Icon(Icons.search, color: Colors.white),
-              hintText: 'Search...',
-              suffix: new SizedBox(
-                width: 40,
-                child: new TextField(
-                  controller: _searchCountController,
-                  readOnly: true,
-                  style: TextStyle(color: Colors.white),
-                  decoration: null,
-                ),
-              ),
-            ),
-            autofocus: true,
-            style: TextStyle(color: Colors.white));
-      } else {
-        _searchIcon = new Icon(Icons.search);
-        _appBarTitle = new Text('Pocket Scat');
+      _searching = !_searching;
+      if (!_searching) {
         _filter.clear();
         _filteredQuotes = _allQuotes;
       }
     });
+  }
+
+  Widget _buildAppBar() {
+    if (_searching) {
+      return new TextField(
+          controller: _filter,
+          decoration: new InputDecoration(
+            prefixIcon: new Icon(Icons.search, color: Colors.white),
+            hintText: 'Search...',
+            suffixText: '${_filteredQuotes.length}',
+          ),
+          autofocus: true,
+          style: TextStyle(color: Colors.white));
+    } else {
+      return new Text('Pocket Scat');
+    }
   }
 
   Future _randomPressed() async {
