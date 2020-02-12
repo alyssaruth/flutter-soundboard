@@ -1,14 +1,11 @@
-import 'dart:typed_data';
-
-import 'package:audioplayers/audio_cache.dart';
-import 'package:audioplayers/audioplayers.dart';
+import 'package:dart_random_choice/dart_random_choice.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pocket_scat/util/Quote.dart';
 import 'package:pocket_scat/util/QuotesList.dart';
-import 'package:dart_random_choice/dart_random_choice.dart';
-import 'package:esys_flutter_share/esys_flutter_share.dart';
+
+import 'widget/QuoteButton.dart';
 
 void main() => runApp(PocketScat(ALL_QUOTES));
 
@@ -42,13 +39,11 @@ class QuoteState extends State<QuoteWidget> {
   final TextEditingController _filter = new TextEditingController();
   final List<Quote> _allQuotes;
 
-  AudioPlayer _audioPlayer;
   List<Quote> _filteredQuotes = [];
   bool _searching = false;
 
   QuoteState(this._allQuotes) {
     _filteredQuotes = _allQuotes;
-
     _filter.addListener(_searchChanged);
   }
 
@@ -64,7 +59,7 @@ class QuoteState extends State<QuoteWidget> {
           crossAxisCount: _computeColumnCount(context),
           childAspectRatio: 1,
           padding: const EdgeInsets.all(0),
-          children: _filteredQuotes.map((q) => _buildQuoteButton(q, context)).toList()),
+          children: _filteredQuotes.map((q) => QuoteButton(q)).toList()),
       floatingActionButton: FloatingActionButton(
         onPressed: _randomPressed,
         child: Icon(Icons.play_arrow),
@@ -86,44 +81,6 @@ class QuoteState extends State<QuoteWidget> {
       return new Text('Pocket Scat');
     }
   }
-
-  Widget _buildQuoteButton(Quote quote, BuildContext context) => GestureDetector(
-      onLongPress: () {
-        _shareQuote(quote, context);
-      },
-      child: CupertinoButton(
-        child: Container(
-          width: 200,
-          height: 200,
-          decoration: BoxDecoration(
-            image: new DecorationImage(image: quote.getImage()),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Container(
-            alignment: Alignment.bottomCenter,
-            margin: EdgeInsets.fromLTRB(0, 140, 0, 0),
-            width: 200,
-            height: 40,
-            decoration: BoxDecoration(
-                color: Color.fromRGBO(0, 0, 0, 0.75),
-                borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(12),
-                    bottomLeft: Radius.circular(12))),
-            child: Container(
-                margin: EdgeInsets.fromLTRB(5, 0, 5, 8),
-                child: Text(
-                  quote.name,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600),
-                )),
-          ),
-        ),
-        onPressed: () {
-          _playQuote(quote.filename);
-        },
-      ));
 
   int _computeColumnCount(BuildContext context) =>
       MediaQuery.of(context).size.width ~/ 200;
@@ -147,18 +104,6 @@ class QuoteState extends State<QuoteWidget> {
 
   Future _randomPressed() async {
     final element = randomChoice<Quote>(_filteredQuotes);
-    await _playQuote(element.filename);
-  }
-
-  Future _playQuote(String filename) async {
-    await _audioPlayer?.stop();
-    _audioPlayer = await AudioCache().play("$filename.wav");
-  }
-
-  Future _shareQuote(Quote quote, BuildContext context) async {
-    final AssetBundle bundle = DefaultAssetBundle.of(context);
-    final filename = "${quote.filename}.wav";
-    final ByteData bytes = await bundle.load('assets/$filename');
-    await Share.file(quote.name, filename, bytes.buffer.asUint8List().toList(), 'media/wav');
+    await element.play();
   }
 }
