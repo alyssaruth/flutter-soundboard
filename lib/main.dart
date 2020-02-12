@@ -1,10 +1,14 @@
+import 'dart:typed_data';
+
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pocket_scat/util/Quote.dart';
 import 'package:pocket_scat/util/QuotesList.dart';
 import 'package:dart_random_choice/dart_random_choice.dart';
+import 'package:esys_flutter_share/esys_flutter_share.dart';
 
 void main() => runApp(PocketScat(ALL_QUOTES));
 
@@ -14,16 +18,15 @@ class PocketScat extends StatelessWidget {
   PocketScat(this._allQuotes);
 
   @override
-  Widget build(BuildContext context) =>
-    MaterialApp(
-        title: "Pocket Scat",
-        theme: ThemeData(
-          brightness: Brightness.dark,
-          primaryColor: Colors.purple,
-          accentColor: Colors.purpleAccent,
-          hintColor: Colors.white70,
-        ),
-        home: QuoteWidget(_allQuotes));
+  Widget build(BuildContext context) => MaterialApp(
+      title: "Pocket Scat",
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        primaryColor: Colors.purple,
+        accentColor: Colors.purpleAccent,
+        hintColor: Colors.white70,
+      ),
+      home: QuoteWidget(_allQuotes));
 }
 
 class QuoteWidget extends StatefulWidget {
@@ -61,7 +64,7 @@ class QuoteState extends State<QuoteWidget> {
           crossAxisCount: _computeColumnCount(context),
           childAspectRatio: 1,
           padding: const EdgeInsets.all(0),
-          children: _filteredQuotes.map(_buildQuoteButton).toList()),
+          children: _filteredQuotes.map((q) => _buildQuoteButton(q, context)).toList()),
       floatingActionButton: FloatingActionButton(
         onPressed: _randomPressed,
         child: Icon(Icons.play_arrow),
@@ -84,7 +87,11 @@ class QuoteState extends State<QuoteWidget> {
     }
   }
 
-  CupertinoButton _buildQuoteButton(Quote quote) => CupertinoButton(
+  Widget _buildQuoteButton(Quote quote, BuildContext context) => GestureDetector(
+      onLongPress: () {
+        _shareQuote(quote, context);
+      },
+      child: CupertinoButton(
         child: Container(
           width: 200,
           height: 200,
@@ -116,7 +123,7 @@ class QuoteState extends State<QuoteWidget> {
         onPressed: () {
           _playQuote(quote.filename);
         },
-      );
+      ));
 
   int _computeColumnCount(BuildContext context) =>
       MediaQuery.of(context).size.width ~/ 200;
@@ -146,5 +153,12 @@ class QuoteState extends State<QuoteWidget> {
   Future _playQuote(String filename) async {
     await _audioPlayer?.stop();
     _audioPlayer = await AudioCache().play("$filename.wav");
+  }
+
+  Future _shareQuote(Quote quote, BuildContext context) async {
+    final AssetBundle bundle = DefaultAssetBundle.of(context);
+    final filename = "${quote.filename}.wav";
+    final ByteData bytes = await bundle.load('assets/$filename');
+    await Share.file(quote.name, filename, bytes.buffer.asUint8List().toList(), 'media/wav');
   }
 }
