@@ -8,16 +8,34 @@ import 'package:dart_random_choice/dart_random_choice.dart';
 
 void main() => runApp(PocketScat(ALL_QUOTES));
 
-class PocketScat extends StatefulWidget {
+class PocketScat extends StatelessWidget {
   final List<Quote> _allQuotes;
 
   PocketScat(this._allQuotes);
 
   @override
+  Widget build(BuildContext context) =>
+    MaterialApp(
+        title: "Pocket Scat",
+        theme: ThemeData(
+          brightness: Brightness.dark,
+          primaryColor: Colors.purple,
+          accentColor: Colors.purpleAccent,
+          hintColor: Colors.white70,
+        ),
+        home: QuoteWidget(_allQuotes));
+}
+
+class QuoteWidget extends StatefulWidget {
+  final List<Quote> _allQuotes;
+
+  QuoteWidget(this._allQuotes);
+
+  @override
   QuoteState createState() => QuoteState(_allQuotes);
 }
 
-class QuoteState extends State<PocketScat> {
+class QuoteState extends State<QuoteWidget> {
   final TextEditingController _filter = new TextEditingController();
   final List<Quote> _allQuotes;
 
@@ -32,36 +50,41 @@ class QuoteState extends State<PocketScat> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Pocket Scat",
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        primaryColor: Colors.purple,
-        accentColor: Colors.purpleAccent,
-        hintColor: Colors.white70,
+  Widget build(BuildContext context) => Scaffold(
+      appBar: AppBar(
+        title: _buildAppBar(),
+        leading: new IconButton(
+            icon: new Icon(_searching ? Icons.close : Icons.search),
+            onPressed: _searchPressed),
       ),
-      home: Scaffold(
-          appBar: AppBar(
-            title: _buildAppBar(),
-            leading: new IconButton(
-                icon: new Icon(_searching ? Icons.close : Icons.search),
-                onPressed: _searchPressed),
+      body: GridView.count(
+          crossAxisCount: _computeColumnCount(context),
+          childAspectRatio: 1,
+          padding: const EdgeInsets.all(0),
+          children: _filteredQuotes.map(_buildQuoteButton).toList()),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _randomPressed,
+        child: Icon(Icons.play_arrow),
+        backgroundColor: Colors.green,
+      ));
+
+  Widget _buildAppBar() {
+    if (_searching) {
+      return new TextField(
+          controller: _filter,
+          decoration: new InputDecoration(
+            prefixIcon: new Icon(Icons.search, color: Colors.white),
+            hintText: 'Search...',
+            suffixText: '${_filteredQuotes.length}',
           ),
-          body: GridView.count(
-              crossAxisCount: 2,
-              childAspectRatio: 1,
-              padding: const EdgeInsets.all(0),
-              children: _filteredQuotes.map(_getQuoteButton).toList()),
-          floatingActionButton: FloatingActionButton(
-            onPressed: _randomPressed,
-            child: Icon(Icons.play_arrow),
-            backgroundColor: Colors.green,
-          )),
-    );
+          autofocus: true,
+          style: TextStyle(color: Colors.white));
+    } else {
+      return new Text('Pocket Scat');
+    }
   }
 
-  CupertinoButton _getQuoteButton(Quote quote) => CupertinoButton(
+  CupertinoButton _buildQuoteButton(Quote quote) => CupertinoButton(
         child: Container(
           width: 200,
           height: 200,
@@ -95,6 +118,9 @@ class QuoteState extends State<PocketScat> {
         },
       );
 
+  int _computeColumnCount(BuildContext context) =>
+      MediaQuery.of(context).size.width ~/ 200;
+
   void _searchChanged() {
     setState(() {
       _filteredQuotes =
@@ -110,22 +136,6 @@ class QuoteState extends State<PocketScat> {
         _filteredQuotes = _allQuotes;
       }
     });
-  }
-
-  Widget _buildAppBar() {
-    if (_searching) {
-      return new TextField(
-          controller: _filter,
-          decoration: new InputDecoration(
-            prefixIcon: new Icon(Icons.search, color: Colors.white),
-            hintText: 'Search...',
-            suffixText: '${_filteredQuotes.length}',
-          ),
-          autofocus: true,
-          style: TextStyle(color: Colors.white));
-    } else {
-      return new Text('Pocket Scat');
-    }
   }
 
   Future _randomPressed() async {
