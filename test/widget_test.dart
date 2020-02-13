@@ -7,10 +7,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:pocket_scat/main.dart';
 import 'package:pocket_scat/util/Quote.dart';
 import 'package:pocket_scat/util/QuoteSource.dart';
+import 'package:pocket_scat/widget/App.dart';
 
 const PIECE_OF_YOUR_BRAIN = Quote("fawlty_piece_of_your_brain", "Piece of your brain", SRC_FAWLTY_TOWERS, "Is this a piece of your brain Basil");
 const ERRONEOUS_DISH = Quote("fawlty_erroneous_dish", "Erroneous dish", SRC_FAWLTY_TOWERS, "I have been given an erroneous dish");
@@ -21,7 +20,7 @@ const TEST_QUOTES = [PIECE_OF_YOUR_BRAIN, ERRONEOUS_DISH, VERY_NICE_BRIAN, BAD_M
 
 void main() {
   testWidgets('Should search by quote content, and clear the search when cancelled', (WidgetTester tester) async {
-    await tester.pumpWidget(PocketScat(TEST_QUOTES));
+    await tester.pumpWidget(App(TEST_QUOTES));
 
     expect(find.text('Erroneous dish'), findsOneWidget);
     expect(find.text('Piece of your brain'), findsOneWidget);
@@ -47,7 +46,7 @@ void main() {
   });
 
   testWidgets('Should search by quote category', (WidgetTester tester) async {
-    await tester.pumpWidget(PocketScat(TEST_QUOTES));
+    await tester.pumpWidget(App(TEST_QUOTES));
 
     expect(find.text('Bad Miss 1'), findsOneWidget);
     expect(find.text('Piece of your brain'), findsOneWidget);
@@ -65,7 +64,7 @@ void main() {
   });
 
   testWidgets('Should search by quote source', (WidgetTester tester) async {
-    await tester.pumpWidget(PocketScat(TEST_QUOTES));
+    await tester.pumpWidget(App(TEST_QUOTES));
 
     expect(find.text('Bad Miss 1'), findsOneWidget);
     expect(find.text('Piece of your brain'), findsOneWidget);
