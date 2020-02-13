@@ -1,16 +1,17 @@
 # pocket_scat
 
-tuuuuug...
+A simple soundboard app, with:
 
-## Getting Started
+ - Quotes laid out as a scrollable grid of captioned image tiles. Tapping on one plays the sound bite.
+ - A search bar, allowing quotes to be filtered by their content and by other metadata such as the TV show they're from
+ - 'Play random' floating action button, which will play a random quote of those returned by the current search
+ - Ability to share a quote (e.g. to WhatsApp) by long-pressing on it
+ 
+## Data entry:
 
-This project is a starting point for a Flutter application.
+If you want to fork this project to make your own custom list of quotes, then you'll need:
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ - Some audio clips that you want to play
+ - Images for the clips. 
+     - At least one per 'source' of audio, but can add more if you want more granularity than that 
+     - Must be square, at least 200x200 pixels in size and in PNG format.
