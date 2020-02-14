@@ -34,11 +34,7 @@ class Quote {
       return new AssetImage('assets/images/$imageName.png');
     }
 
-    if (source.imageName != null) {
-      return new AssetImage('assets/images/${source.imageName}.png');
-    }
-
-    return new AssetImage('assets/images/abe.png');
+    return new AssetImage('assets/images/${source.imageName}.png');
   }
 
   Future share(BuildContext context) async {
