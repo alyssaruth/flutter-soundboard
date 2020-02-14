@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 import 'QuoteCategory.dart';
 import 'QuoteSource.dart';
 
-//Bit dirty, but keep a global reference to the latest audioPlayer created so we can stop it if another quote is played in the meantime
+//Keep a reference to the latest audioPlayer so we can stop it if another quote is played in the meantime
 AudioPlayer _audioPlayer;
 
 class Quote {
