@@ -42,7 +42,6 @@ class SearchableQuotesState extends State<SearchableQuotes> {
       floatingActionButton: FloatingActionButton(
         onPressed: _randomPressed,
         child: Icon(Icons.play_arrow),
-        backgroundColor: Colors.green,
       ));
 
   Widget _buildAppBar() {
