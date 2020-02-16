@@ -14,7 +14,7 @@ class QuoteSource {
   }
 }
 
-const QuoteSource SRC_MITCHELL_AND_WEBB = QuoteSource("Mitchell and Webb", QuoteCategory.SKETCH, "mitchell_snooker");
+const QuoteSource SRC_MITCHELL_AND_WEBB = QuoteSource("Mitchell and Webb", QuoteCategory.SKETCH, "mitchell_and_webb");
 const QuoteSource SRC_NTNON = QuoteSource("Not the Nine O'Clock News", QuoteCategory.SKETCH, "ntnon");
 const QuoteSource SRC_ROWAN_ATKINSON = QuoteSource("Rowan Atkinson", QuoteCategory.SKETCH, "rowan_atkinson");
 const QuoteSource SRC_MONTY_PYTHON = QuoteSource("Monty Python", QuoteCategory.SKETCH, "monty_python");
@@ -23,7 +23,7 @@ const QuoteSource SRC_FAWLTY_TOWERS = QuoteSource("Fawlty Towers", QuoteCategory
 const QuoteSource SRC_BEAN = QuoteSource("Mr. Bean", QuoteCategory.SITCOM, "bean", "mr bean");
 const QuoteSource SRC_CYE = QuoteSource("Curb Your Enthusiasm", QuoteCategory.SITCOM, "cye", "larry david");
 const QuoteSource SRC_FRIENDS = QuoteSource("Friends", QuoteCategory.SITCOM, "friends");
-const QuoteSource SRC_HYACINTH = QuoteSource("Keeping Up Appearances", QuoteCategory.SITCOM, "onslo", "hyacinth richard bucket");
+const QuoteSource SRC_HYACINTH = QuoteSource("Keeping Up Appearances", QuoteCategory.SITCOM, "hyacinth", "hyacinth richard bucket");
 const QuoteSource SRC_PARTRIDGE = QuoteSource("Alan Partridge", QuoteCategory.SITCOM, "partridge");
 const QuoteSource SRC_RED_DWARF = QuoteSource("Red Dwarf", QuoteCategory.SITCOM, "red_dwarf");
 const QuoteSource SRC_VM = QuoteSource("One Foot in the Grave", QuoteCategory.SITCOM, "vm", "victor meldrew");
@@ -36,6 +36,8 @@ const QuoteSource SRC_TOMB_RAIDER = QuoteSource("Tomb Raider", QuoteCategory.GAM
 const QuoteSource SRC_WORMS = QuoteSource("Worms", QuoteCategory.GAME, "worms");
 
 const QuoteSource SRC_APPRENTICE = QuoteSource("The Apprentice", QuoteCategory.MISC, "the_apprentice", "alan sugar");
+const QuoteSource SRC_BOND = QuoteSource("James Bond", QuoteCategory.MISC, "bond_q", "007");
+const QuoteSource SRC_BRUCE = QuoteSource("Bruce Forsyth", QuoteCategory.MISC, "bruce");
 const QuoteSource SRC_THE_CHASE = QuoteSource("The Chase", QuoteCategory.MISC, "the_chase");
 const QuoteSource SRC_JOHNNY_ENGLISH = QuoteSource("Johnny English", QuoteCategory.MISC, "johnny_english", "jonny");
 const QuoteSource SRC_RAT_RACE = QuoteSource("Rat Race", QuoteCategory.MISC, "rat_race");
@@ -49,6 +51,7 @@ const QuoteSource SRC_HOUSE = QuoteSource("House", QuoteCategory.MISC, "house");
 const QuoteSource SRC_ICE_AGE = QuoteSource("Ice Age", QuoteCategory.MISC, "ice_age", "sid");
 const QuoteSource SRC_JOE_LYCETT = QuoteSource("Joe Lycett", QuoteCategory.MISC, "joe_lycett");
 const QuoteSource SRC_WEEBL_STUFF = QuoteSource("Weebl stuff", QuoteCategory.MISC, "weebl_stuff");
+const QuoteSource SRC_GREG_DAVIES = QuoteSource("Greg Davies", QuoteCategory.MISC, "greg");
 
 const QuoteSource SRC_ART_ATTACK = QuoteSource("Art Attack", QuoteCategory.KIDS_TV, "art_attack");
 const QuoteSource SRC_BLOBBY = QuoteSource("Mr. Blobby", QuoteCategory.KIDS_TV, "mr_blobby", "noel edmonds");
