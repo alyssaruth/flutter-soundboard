@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pocket_scat/util/Quote.dart';
+import 'package:pocket_scat/util/quote.dart';
 
-import 'SearchableQuotes.dart';
+import 'searchable_quotes.dart';
 
 class App extends StatelessWidget {
   final List<Quote> _allQuotes;

@@ -1,5 +1,5 @@
-import 'Quote.dart';
-import 'QuoteSource.dart';
+import 'quote.dart';
+import 'quote_source.dart';
 
 const List<Quote> ALL_QUOTES = [
   Quote("abe_back_off_stitch_lips", "Back off, stitch-lips!", SRC_ABE, "So back off stitch lips"),

@@ -7,9 +7,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pocket_scat/util/Quote.dart';
-import 'package:pocket_scat/util/QuoteSource.dart';
-import 'package:pocket_scat/widget/App.dart';
+import 'package:pocket_scat/util/quote.dart';
+import 'package:pocket_scat/util/quote_source.dart';
+import 'package:pocket_scat/widget/app.dart';
 
 const PIECE_OF_YOUR_BRAIN = Quote("fawlty_piece_of_your_brain", "Piece of your brain", SRC_FAWLTY_TOWERS, "Is this a piece of your brain Basil");
 const ERRONEOUS_DISH = Quote("fawlty_erroneous_dish", "Erroneous dish", SRC_FAWLTY_TOWERS, "I have been given an erroneous dish");

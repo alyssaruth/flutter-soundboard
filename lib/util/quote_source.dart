@@ -1,4 +1,4 @@
-import 'QuoteCategory.dart';
+import 'quote_category.dart';
 
 class QuoteSource {
   final String name;

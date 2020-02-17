@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pocket_scat/util/Quote.dart';
+import 'package:pocket_scat/util/quote.dart';
 
 class QuoteButton extends StatelessWidget {
   final Quote _quote;

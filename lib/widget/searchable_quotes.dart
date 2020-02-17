@@ -1,9 +1,9 @@
 import 'package:dart_random_choice/dart_random_choice.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pocket_scat/util/Quote.dart';
+import 'package:pocket_scat/util/quote.dart';
 
-import 'QuoteButton.dart';
+import 'quote_button.dart';
 
 class SearchableQuotes extends StatefulWidget {
   final List<Quote> _allQuotes;
