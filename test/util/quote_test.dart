@@ -24,4 +24,16 @@ void main() {
     expect(quote.containsSearchTerm("tual"), true);
     expect(quote.containsSearchTerm("not this"), false);
   });
+
+  test('should be searchable by quote source', () {
+    final quote = Quote("file_name", "Some Text", SRC_TOAST, "");
+    expect(quote.containsSearchTerm("toast of london"), true);
+    expect(quote.containsSearchTerm("curb"), false);
+  });
+
+  test('should be searchable by quote category', () {
+    final quote = Quote("file_name", "Some Text", SRC_TOAST, "");
+    expect(quote.containsSearchTerm("sitcom"), true);
+    expect(quote.containsSearchTerm("kids tv"), false);
+  });
 }
