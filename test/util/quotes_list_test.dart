@@ -8,19 +8,15 @@ void main() {
     ALL_QUOTES.forEach((quote) {
       final expectedPath = 'assets/${quote.filename}.wav';
       final exists = new File(expectedPath).existsSync();
-      if (!exists) printOnFailure(expectedPath);
-
-      expect(exists, true);
+      expect(exists, isTrue, reason: '$expectedPath does not exist');
     });
   });
 
   test('specified image should exist for all quotes', () {
     ALL_QUOTES.forEach((quote) {
-      final img = quote.getImage();
-      final exists = new File(img.keyName).existsSync();
-      if (!exists) printOnFailure(img.keyName);
-
-      expect(exists, true);
+      final expectedPath = quote.getImage().keyName;
+      final exists = new File(expectedPath).existsSync();
+      expect(exists, isTrue, reason: '$expectedPath does not exist');
     });
   });
 }
