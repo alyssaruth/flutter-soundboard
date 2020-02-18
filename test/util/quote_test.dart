@@ -36,4 +36,18 @@ void main() {
     expect(quote.containsSearchTerm("sitcom"), true);
     expect(quote.containsSearchTerm("kids tv"), false);
   });
+
+  test('should return its own image path if one is specified', () {
+    final quote = Quote("file_name", "Some text", SRC_TOAST, "some search terms", "my_custom_image");
+    final img = quote.getImage();
+
+    expect(img.keyName, "assets/images/my_custom_image.png");
+  });
+
+  test('should fall back on source image path if not specified', () {
+    final quote = Quote("file_name", "Some text", SRC_TOAST, "some search terms");
+    final img = quote.getImage();
+
+    expect(img.keyName, "assets/images/toast.png");
+  });
 }
