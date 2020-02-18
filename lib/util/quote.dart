@@ -1,6 +1,5 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
 import 'package:pocket_scat/util/injected_things.dart';
 
 import 'quote_category.dart';
@@ -16,7 +15,8 @@ class Quote {
   final String searchStr;
   final String imageName;
 
-  const Quote(this.filename, this.name, this.source, this.searchStr, [this.imageName]);
+  const Quote(this.filename, this.name, this.source, this.searchStr,
+      [this.imageName]);
 
   bool containsSearchTerm(String searchTerm) {
     if (searchTerm.isEmpty) return true;
@@ -38,11 +38,8 @@ class Quote {
   }
 
   Future shareAudio(BuildContext context) async {
-    final AssetBundle bundle = DefaultAssetBundle.of(context);
     final fullFilename = "$filename.wav";
-    final ByteData bytes = await bundle.load('assets/$fullFilename');
-    await fileSharer.shareFile(
-        name, fullFilename, bytes, 'media/wav');
+    await fileSharer.shareFile(name, fullFilename, context, 'media/wav');
   }
 
   Future play() async {

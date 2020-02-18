@@ -1,13 +1,10 @@
-import 'package:audioplayers/audio_cache.dart';
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:pocket_scat/util/injected_things.dart';
 import 'package:pocket_scat/util/quote_source.dart';
 import 'package:pocket_scat/util/quote.dart';
 
-class MockAudioCache extends Mock implements AudioCache {}
-class MockAudioPlayer extends Mock implements AudioPlayer {}
+import 'mocks.dart';
 
 void main() {
   test('should always contain an empty search', () {
@@ -85,5 +82,13 @@ void main() {
     verify(audioCache.play("other_file.wav"));
   });
 
+  test('should share the audio file', () async {
+    final quote = Quote("file_name", "Some text", SRC_TOAST, "");
+    final buildContext = MockBuildContext();
+    fileSharer = MockFileSharer();
 
+    await quote.shareAudio(buildContext);
+
+    verify(fileSharer.shareFile("Some text", "file_name.wav", buildContext, "media/wav"));
+  });
 }
