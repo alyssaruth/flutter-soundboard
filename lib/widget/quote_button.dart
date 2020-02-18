@@ -10,7 +10,7 @@ class QuoteButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => GestureDetector(
       onLongPress: () {
-        _quote.share(context);
+        _quote.shareAudio(context);
       },
       child: CupertinoButton(
         child: Container(

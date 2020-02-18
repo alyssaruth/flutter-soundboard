@@ -1,8 +1,7 @@
-import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:esys_flutter_share/esys_flutter_share.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:pocket_scat/util/injected_things.dart';
 
 import 'quote_category.dart';
 import 'quote_source.dart';
@@ -17,8 +16,7 @@ class Quote {
   final String searchStr;
   final String imageName;
 
-  const Quote(this.filename, this.name, this.source, this.searchStr,
-      [this.imageName]);
+  const Quote(this.filename, this.name, this.source, this.searchStr, [this.imageName]);
 
   bool containsSearchTerm(String searchTerm) {
     if (searchTerm.isEmpty) return true;
@@ -39,17 +37,16 @@ class Quote {
     return new AssetImage('assets/images/${source.imageName}.png');
   }
 
-  Future share(BuildContext context) async {
+  Future shareAudio(BuildContext context) async {
     final AssetBundle bundle = DefaultAssetBundle.of(context);
     final fullFilename = "$filename.wav";
     final ByteData bytes = await bundle.load('assets/$fullFilename');
-    await Share.file(
-        name, fullFilename, bytes.buffer.asUint8List().toList(), 'media/wav',
-        text: name);
+    await fileSharer.shareFile(
+        name, fullFilename, bytes, 'media/wav');
   }
 
   Future play() async {
     await _audioPlayer?.stop();
-    _audioPlayer = await AudioCache().play("$filename.wav");
+    _audioPlayer = await audioCache.play("$filename.wav");
   }
 }

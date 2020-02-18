@@ -1,6 +1,13 @@
+import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/mockito.dart';
+import 'package:pocket_scat/util/injected_things.dart';
 import 'package:pocket_scat/util/quote_source.dart';
 import 'package:pocket_scat/util/quote.dart';
+
+class MockAudioCache extends Mock implements AudioCache {}
+class MockAudioPlayer extends Mock implements AudioPlayer {}
 
 void main() {
   test('should always contain an empty search', () {
@@ -50,4 +57,33 @@ void main() {
 
     expect(img.keyName, "assets/images/toast.png");
   });
+
+  test('should play the associated audio file', () async {
+    final quote = Quote("file_name", "Some text", SRC_TOAST, "");
+    audioCache = MockAudioCache();
+    await quote.play();
+
+    verify(audioCache.play("file_name.wav"));
+    verifyNoMoreInteractions(audioCache);
+  });
+
+  test('should stop the previous audio player if it exists before playing a new sound', () async {
+    final quoteOne = Quote("file_name", "Some text", SRC_TOAST, "");
+    final quoteTwo = Quote("other_file", "Other text", SRC_RAINBOW, "");
+
+    audioCache = MockAudioCache();
+    final audioPlayer = MockAudioPlayer();
+
+    when(audioCache.play(any)).thenAnswer((_) => Future.value(audioPlayer));
+
+    await quoteOne.play();
+    verify(audioCache.play("file_name.wav"));
+    verifyZeroInteractions(audioPlayer);
+
+    await quoteTwo.play();
+    verify(audioPlayer.stop());
+    verify(audioCache.play("other_file.wav"));
+  });
+
+
 }
