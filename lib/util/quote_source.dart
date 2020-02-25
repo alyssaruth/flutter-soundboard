@@ -1,20 +1,20 @@
 import 'quote_category.dart';
 
 class QuoteSource {
-  final String name;
-  final QuoteCategory category;
+  final String _name;
+  final QuoteCategory _category;
   final String imageName;
-  final String searchTerms;
+  final String _searchTerms;
 
-  const QuoteSource(this.name, this.category, this.imageName,
-      [this.searchTerms]);
+  const QuoteSource(this._name, this._category, this.imageName,
+      [this._searchTerms]);
 
   bool containsSearchTerm(String searchTerm) {
     final lowerCased = searchTerm.toLowerCase();
-    return name.toLowerCase().contains(lowerCased) ||
-        (searchTerms != null &&
-            searchTerms.toLowerCase().contains(lowerCased)) ||
-        QuoteCategoryDesc[category].toLowerCase().contains(lowerCased);
+    return _name.toLowerCase().contains(lowerCased) ||
+        (_searchTerms != null &&
+            _searchTerms.toLowerCase().contains(lowerCased)) ||
+        QuoteCategoryDesc[_category].toLowerCase().contains(lowerCased);
   }
 }
 
