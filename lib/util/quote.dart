@@ -2,7 +2,6 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:pocket_scat/util/injected_things.dart';
 
-import 'quote_category.dart';
 import 'quote_source.dart';
 
 //Keep a reference to the latest audioPlayer so we can stop it if another quote is played in the meantime
@@ -25,8 +24,7 @@ class Quote {
 
     return name.toLowerCase().contains(lowerCased) ||
         searchStr.toLowerCase().contains(lowerCased) ||
-        source.containsSearchTerm(lowerCased) ||
-        QuoteCategoryDesc[source.category].toLowerCase().contains(lowerCased);
+        source.containsSearchTerm(lowerCased);
   }
 
   AssetImage getImage() {
