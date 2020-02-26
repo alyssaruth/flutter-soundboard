@@ -45,3 +45,5 @@ class Quote {
     _audioPlayer = await audioCache.play("$filename.wav");
   }
 }
+
+AudioPlayerState getPlaybackState() => _audioPlayer?.state;

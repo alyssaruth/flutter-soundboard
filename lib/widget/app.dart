@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pocket_scat/util/quote.dart';
@@ -19,4 +20,6 @@ class App extends StatelessWidget {
         hintColor: Colors.white70,
       ),
       home: SearchableQuotes(_allQuotes));
+
+  AudioPlayerState getAudioPlayerState() => getPlaybackState();
 }

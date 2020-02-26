@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_driver/driver_extension.dart';
 import 'package:pocket_scat/util/quote.dart';
@@ -12,7 +13,33 @@ const BAD_MISS = Quote("mitchell_bad_miss_1", "Bad Miss 1", SRC_MITCHELL_AND_WEB
 const TEST_QUOTES = [PIECE_OF_YOUR_BRAIN, ERRONEOUS_DISH, VERY_NICE_BRIAN, BAD_MISS];
 
 void main () {
-  enableFlutterDriverExtension();
+  final app = App(TEST_QUOTES);
+
+  enableFlutterDriverExtension(handler: (message) => Future.value(handleMessage(app)));
 
   runApp(App(TEST_QUOTES));
+}
+
+String handleMessage(App app) {
+  final state = app.getAudioPlayerState();
+
+  if (state == null) {
+    return "";
+  } else {
+    return _parsePlayerState(state);
+  }
+}
+
+// ignore: missing_return
+String _parsePlayerState(AudioPlayerState state) {
+  switch(state) {
+    case AudioPlayerState.PLAYING:
+      return "PLAYING";
+    case AudioPlayerState.STOPPED:
+      return "STOPPED";
+    case AudioPlayerState.PAUSED:
+      return "PAUSED";
+    case AudioPlayerState.COMPLETED:
+      return "COMPLETED";
+  }
 }
