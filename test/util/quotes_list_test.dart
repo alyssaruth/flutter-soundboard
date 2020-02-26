@@ -6,6 +6,7 @@ import 'package:pocket_scat/util/quotes_list.dart';
 void main() {
   test('specified audio file should exist for all quotes', () {
     ALL_QUOTES.forEach((quote) {
+      print(Directory.current);
       final expectedPath = 'assets/${quote.filename}.wav';
       final exists = getProjectFile(expectedPath).existsSync();
       expect(exists, isTrue, reason: '$expectedPath does not exist');
@@ -21,7 +22,7 @@ void main() {
   });
 }
 
-File getProjectFile(String path) => (_getProjectRootDirectory()).childFile(path);
+File getProjectFile(String path) => _getProjectRootDirectory().childFile(path);
 Directory _getProjectRootDirectory() {
   var dir = Directory.current;
   while (!_isProjectRootDirectory(dir)) {
