@@ -20,6 +20,12 @@ dev_dependencies:
     sdk: flutter
   test: any
   mockito: 4.1.1
+  flutter_launcher_icons: 0.7.4
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: assets/images/bean.png
 
 # The following section is specific to Flutter.
 flutter:
