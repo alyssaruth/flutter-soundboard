@@ -56,17 +56,17 @@ void main() {
      * Doesn't seem to be possible to verify that the share window appears. See e.g. https://stackoverflow.com/questions/58352785/how-to-run-integration-test-for-share-dialog-in-flutter
      */
 //    test('can share quotes', () async {
-//      expect(await driver.isPresent(brainFinder, driver), true);
+//      expect(await driver.isPresent(brainFinder), true);
 //
-//      await longPress(brainFinder, driver);
+//      await driver.longPress(brainFinder);
 //
-//      expect(await driver.isPresent(find.text('Share'), driver, timeout: Duration(seconds: 5)), true);
-//      expect(await driver.isPresent(find.text('fawlty_piece_of_your_brain.wav'), driver), true);
+//      expect(await driver.isPresent(find.text('Share'),  timeout: Duration(seconds: 5)), true);
+//      expect(await driver.isPresent(find.text('fawlty_piece_of_your_brain.wav')), true);
 //
 //      await driver.tap(brainFinder);
 //
-//      expect(await driver.isPresent(find.text('Share'), driver, timeout: Duration(seconds: 5)), false);
-//      expect(await driver.isPresent(find.text('fawlty_piece_of_your_brain.wav'), driver), false);
+//      expect(await driver.isPresent(find.text('Share'), timeout: Duration(seconds: 5)), false);
+//      expect(await driver.isPresent(find.text('fawlty_piece_of_your_brain.wav')), false);
 //    });
   });
 }
