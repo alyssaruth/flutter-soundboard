@@ -37,6 +37,7 @@ const QuoteSource SRC_FRIENDS =
     QuoteSource("Friends", QuoteCategory.SITCOM, "friends");
 const QuoteSource SRC_HYACINTH = QuoteSource("Keeping Up Appearances",
     QuoteCategory.SITCOM, "hyacinth", "hyacinth richard bucket");
+const QuoteSource SRC_IT_CROWD = QuoteSource("The IT Crowd", QuoteCategory.SITCOM, "it_crowd");
 const QuoteSource SRC_PARTRIDGE =
     QuoteSource("Alan Partridge", QuoteCategory.SITCOM, "partridge");
 const QuoteSource SRC_RED_DWARF =
@@ -52,6 +53,8 @@ const QuoteSource SRC_TOAST =
 
 const QuoteSource SRC_ABE =
     QuoteSource("Abe's Oddyssee", QuoteCategory.GAME, "abe", "abe");
+const QuoteSource SRC_HARRY_POTTER =
+    QuoteSource("Harry Potter", QuoteCategory.GAME, "filch", "filch");
 const QuoteSource SRC_TOMB_RAIDER =
     QuoteSource("Tomb Raider", QuoteCategory.GAME, "tomb_raider_2");
 const QuoteSource SRC_WORMS = QuoteSource("Worms", QuoteCategory.GAME, "worms");
