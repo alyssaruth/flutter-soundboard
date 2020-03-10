@@ -1,8 +1,8 @@
 # Pocket Scat
 
 <p align="center">
-<img align="center" src="https://user-images.githubusercontent.com/5732536/76313150-52c95c80-62cc-11ea-9cdc-4d272229aa5b.jpg" width="400" alt="screenshot">
-<img align="center" src="https://user-images.githubusercontent.com/5732536/76313154-552bb680-62cc-11ea-9e41-f2e7499514d2.jpg" width="400" alt="screenshot during search">
+<img align="center" src="https://user-images.githubusercontent.com/5732536/76313150-52c95c80-62cc-11ea-9cdc-4d272229aa5b.jpg" width="300" alt="screenshot">
+<img align="center" src="https://user-images.githubusercontent.com/5732536/76313154-552bb680-62cc-11ea-9e41-f2e7499514d2.jpg" width="300" alt="screenshot during search">
 </p>
 
 A simple soundboard app, with:
