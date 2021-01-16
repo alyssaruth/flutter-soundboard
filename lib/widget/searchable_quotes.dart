@@ -61,7 +61,7 @@ class SearchableQuotesState extends State<SearchableQuotes> {
   }
 
   int _computeColumnCount(BuildContext context) =>
-      MediaQuery.of(context).size.width ~/ 200;
+      MediaQuery.of(context).size.width ~/ 150;
 
   void _searchChanged() {
     setState(() {
