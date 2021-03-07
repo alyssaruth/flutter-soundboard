@@ -26,6 +26,7 @@ const QuoteSource SRC_ROWAN_ATKINSON =
     QuoteSource("Rowan Atkinson", QuoteCategory.SKETCH, "rowan_atkinson");
 const QuoteSource SRC_MONTY_PYTHON =
     QuoteSource("Monty Python", QuoteCategory.SKETCH, "monty_python");
+const QuoteSource SRC_TV_BURP = QuoteSource("TV Burp", QuoteCategory.SKETCH, "knitted", "harry hill v2");
 
 const QuoteSource SRC_FAWLTY_TOWERS = QuoteSource(
     "Fawlty Towers", QuoteCategory.SITCOM, "fawlty_towers", "basil manuel");
@@ -50,6 +51,10 @@ const QuoteSource SRC_DADS_ARMY =
     QuoteSource("Dad's Army", QuoteCategory.SITCOM, "dads_army", "dads army");
 const QuoteSource SRC_TOAST =
     QuoteSource("Toast of London", QuoteCategory.SITCOM, "toast");
+const QuoteSource SRC_B99 = QuoteSource("Brooklyn 99", QuoteCategory.SITCOM, "holt", "raymond ray holt v2");
+const QuoteSource SRC_FUTURAMA = QuoteSource("Futurama", QuoteCategory.SITCOM, "bender", "v2");
+const QuoteSource SRC_PARKS = QuoteSource("Parks and Recreation", QuoteCategory.SITCOM, "andy", "v2");
+const QuoteSource SRC_SPONGEBOB = QuoteSource("Spongebob Squarepants", QuoteCategory.SITCOM, "spongebob", "v2");
 
 const QuoteSource SRC_ABE =
     QuoteSource("Abe's Oddyssee", QuoteCategory.GAME, "abe", "abe");
