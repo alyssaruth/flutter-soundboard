@@ -4,16 +4,16 @@ import 'package:pocket_scat/util/quote.dart';
 import 'package:pocket_scat/util/quote_source.dart';
 import 'package:pocket_scat/widget/app.dart';
 
-const PIECE_OF_YOUR_BRAIN = Quote("fawlty_piece_of_your_brain", "Piece of your brain", SRC_FAWLTY_TOWERS, "Is this a piece of your brain Basil");
-const ERRONEOUS_DISH = Quote("fawlty_erroneous_dish", "Erroneous dish", SRC_FAWLTY_TOWERS, "I have been given an erroneous dish");
-const VERY_NICE_BRIAN = Quote("bean_very_nice_brian", "Very nice Brian", SRC_BEAN, "very nice brian");
-const BAD_MISS = Quote("mitchell_bad_miss_1", "Bad Miss 1", SRC_MITCHELL_AND_WEBB, "Oh and that's a bad miss");
+const PIECE_OF_YOUR_BRAIN = Quote('fawlty_piece_of_your_brain', 'Piece of your brain', SRC_FAWLTY_TOWERS, 'Is this a piece of your brain Basil');
+const ERRONEOUS_DISH = Quote('fawlty_erroneous_dish', 'Erroneous dish', SRC_FAWLTY_TOWERS, 'I have been given an erroneous dish');
+const VERY_NICE_BRIAN = Quote('bean_very_nice_brian', 'Very nice Brian', SRC_BEAN, 'very nice brian');
+const BAD_MISS = Quote('mitchell_bad_miss_1', 'Bad Miss 1', SRC_MITCHELL_AND_WEBB, 'Oh and thats a bad miss');
 
 const TEST_QUOTES = [PIECE_OF_YOUR_BRAIN, ERRONEOUS_DISH, VERY_NICE_BRIAN, BAD_MISS];
 
 void main() {
   testWidgets('Should search quotes, and clear the search when cancelled', (WidgetTester tester) async {
-    await tester.pumpWidget(App(TEST_QUOTES));
+    await tester.pumpWidget(const App(TEST_QUOTES));
 
     expect(find.text('Erroneous dish'), findsOneWidget);
     expect(find.text('Piece of your brain'), findsOneWidget);
