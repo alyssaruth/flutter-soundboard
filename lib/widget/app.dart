@@ -8,11 +8,11 @@ import 'searchable_quotes.dart';
 class App extends StatelessWidget {
   final List<Quote> _allQuotes;
 
-  App(this._allQuotes);
+  const App(this._allQuotes);
 
   @override
   Widget build(BuildContext context) => MaterialApp(
-      title: "Pocket Scat",
+      title: 'Pocket Scat',
       theme: ThemeData(
         brightness: Brightness.dark,
         primaryColor: Colors.purple,

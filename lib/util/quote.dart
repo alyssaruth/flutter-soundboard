@@ -29,20 +29,20 @@ class Quote {
 
   AssetImage getImage() {
     if (imageName != null) {
-      return new AssetImage('assets/images/$imageName.png');
+      return AssetImage('assets/images/$imageName.png');
     }
 
-    return new AssetImage('assets/images/${source.imageName}.png');
+    return AssetImage('assets/images/${source.imageName}.png');
   }
 
   Future shareAudio(BuildContext context) async {
-    final fullFilename = "$filename.wav";
+    final fullFilename = '$filename.wav';
     await fileSharer.shareFile(name, fullFilename, context, 'media/wav');
   }
 
   Future play() async {
     await _audioPlayer?.stop();
-    _audioPlayer = await audioCache.play("$filename.wav");
+    _audioPlayer = await audioCache.play('$filename.wav');
   }
 }
 

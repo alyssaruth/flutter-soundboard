@@ -5,7 +5,7 @@ import 'package:pocket_scat/util/quote.dart';
 class QuoteButton extends StatelessWidget {
   final Quote _quote;
 
-  QuoteButton(this._quote);
+  const QuoteButton(this._quote);
 
   @override
   Widget build(BuildContext context) => GestureDetector(
@@ -18,7 +18,7 @@ class QuoteButton extends StatelessWidget {
               width: 200,
               height: 200,
               decoration: BoxDecoration(
-                image: new DecorationImage(image: _quote.getImage()),
+                image: DecorationImage(image: _quote.getImage()),
                 borderRadius: BorderRadius.circular(12),
               )),
           _buildTextOverlay(context)
@@ -33,17 +33,17 @@ class QuoteButton extends StatelessWidget {
       left: 0,
       right: 0,
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             color: Color.fromRGBO(0, 0, 0, 0.75),
             borderRadius: BorderRadius.only(
                 bottomRight: Radius.circular(12),
                 bottomLeft: Radius.circular(12))),
         child: Padding(
-            padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+            padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
             child: Text(
               _quote.name,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                   color: Colors.white,
                   fontSize: 15,
                   fontWeight: FontWeight.w600),

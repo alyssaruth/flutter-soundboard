@@ -8,14 +8,14 @@ import 'quote_button.dart';
 class SearchableQuotes extends StatefulWidget {
   final List<Quote> _allQuotes;
 
-  SearchableQuotes(this._allQuotes);
+  const SearchableQuotes(this._allQuotes);
 
   @override
   SearchableQuotesState createState() => SearchableQuotesState(_allQuotes);
 }
 
 class SearchableQuotesState extends State<SearchableQuotes> {
-  final TextEditingController _filter = new TextEditingController();
+  final TextEditingController _filter = TextEditingController();
   final List<Quote> _allQuotes;
 
   List<Quote> _filteredQuotes = [];
@@ -30,8 +30,8 @@ class SearchableQuotesState extends State<SearchableQuotes> {
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
         title: _buildAppBar(),
-        leading: new IconButton(
-            icon: new Icon(_searching ? Icons.close : Icons.search),
+        leading: IconButton(
+            icon: Icon(_searching ? Icons.close : Icons.search),
             onPressed: _searchPressed),
       ),
       body: GridView.count(
@@ -41,22 +41,22 @@ class SearchableQuotesState extends State<SearchableQuotes> {
           children: _filteredQuotes.map((q) => QuoteButton(q)).toList()),
       floatingActionButton: FloatingActionButton(
         onPressed: _randomPressed,
-        child: Icon(Icons.play_arrow),
+        child: const Icon(Icons.play_arrow),
       ));
 
   Widget _buildAppBar() {
     if (_searching) {
-      return new TextField(
+      return TextField(
           controller: _filter,
-          decoration: new InputDecoration(
-            prefixIcon: new Icon(Icons.search, color: Colors.white),
+          decoration: InputDecoration(
+            prefixIcon: const Icon(Icons.search, color: Colors.white),
             hintText: 'Search...',
             suffixText: '${_filteredQuotes.length}',
           ),
           autofocus: true,
-          style: TextStyle(color: Colors.white));
+          style: const TextStyle(color: Colors.white));
     } else {
-      return new Text('Pocket Scat');
+      return const Text('Pocket Scat');
     }
   }
 

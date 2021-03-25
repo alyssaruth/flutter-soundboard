@@ -7,9 +7,9 @@ enum QuoteCategory {
 }
 
 const Map<QuoteCategory, String> QuoteCategoryDesc = {
-  QuoteCategory.SKETCH: "Sketches",
-  QuoteCategory.SITCOM: "Sitcom",
-  QuoteCategory.GAME: "Games",
-  QuoteCategory.KIDS_TV: "Kids TV",
-  QuoteCategory.MISC: "Misc",
+  QuoteCategory.SKETCH: 'Sketches',
+  QuoteCategory.SITCOM: 'Sitcom',
+  QuoteCategory.GAME: 'Games',
+  QuoteCategory.KIDS_TV: 'Kids TV',
+  QuoteCategory.MISC: 'Misc',
 };

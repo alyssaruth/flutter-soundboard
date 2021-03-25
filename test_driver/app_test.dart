@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 void main() {
   group('Pocket Scat', () {
-    final searchBarFinder =  find.byType("TextField");
+    final searchBarFinder =  find.byType('TextField');
     final erroneousFinder = find.text('Erroneous dish');
     final brainFinder = find.text('Piece of your brain');
     final searchFinder = find.byType('IconButton');
@@ -18,7 +18,7 @@ void main() {
     // Close the connection to the driver after the tests have completed.
     tearDownAll(() async {
       if (driver != null) {
-        driver.close();
+        await driver.close();
       }
     });
 
@@ -31,7 +31,7 @@ void main() {
       expect(await driver.isPresent(searchBarFinder), true);
 
       await driver.enterText('piece');
-      await driver.sleep(Duration(milliseconds: 500));
+      await driver.sleep(const Duration(milliseconds: 500));
       expect(await driver.isPresent(erroneousFinder), false);
       expect(await driver.isPresent(brainFinder), true);
 
@@ -42,14 +42,14 @@ void main() {
     });
 
     test('can play back quotes', () async {
-      expect(await driver.getPlaybackStatus(), "");
+      expect(await driver.getPlaybackStatus(), '');
 
       await driver.tap(brainFinder);
-      await driver.sleep(Duration(milliseconds: 500));
-      expect(await driver.getPlaybackStatus(), "PLAYING");
+      await driver.sleep(const Duration(milliseconds: 500));
+      expect(await driver.getPlaybackStatus(), 'PLAYING');
 
-      await driver.sleep(Duration(seconds: 3));
-      expect (await driver.getPlaybackStatus(), "COMPLETED");
+      await driver.sleep(const Duration(seconds: 3));
+      expect (await driver.getPlaybackStatus(), 'COMPLETED');
     });
 
     /**
@@ -81,8 +81,8 @@ extension DriverMethods on FlutterDriver {
     }
   }
 
-  Future<void> sleep(Duration duration) async => await Future.delayed(duration);
+  Future<void> sleep(Duration duration) async => Future.delayed(duration);
 
-  Future<String> getPlaybackStatus() async => await requestData("");
+  Future<String> getPlaybackStatus() async => requestData('');
   //Future<void> longPress(SerializableFinder finder) async => await scroll(finder, 0, 0, Duration(milliseconds: 400));
 }
