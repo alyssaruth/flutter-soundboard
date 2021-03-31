@@ -16,7 +16,7 @@ dependencies:
   share: 2.0.1
 
 dev_dependencies:
-  flutter_driver:
+  integration_test:
     sdk: flutter
   test: any
   mockito: 4.1.1
