@@ -112,14 +112,14 @@ packages:
       name: cupertino_icons
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.2"
+    version: "1.0.2"
   dart_random_choice:
     dependency: "direct main"
     description:
       name: dart_random_choice
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.2"
+    version: "0.1.0-nullsafety.0"
   fake_async:
     dependency: transitive
     description:
