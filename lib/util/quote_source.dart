@@ -29,6 +29,7 @@ const QuoteSource SRC_CYE = QuoteSource('Curb Your Enthusiasm', QuoteCategory.SI
 const QuoteSource SRC_FRIENDS = QuoteSource('Friends', QuoteCategory.SITCOM, 'friends');
 const QuoteSource SRC_HYACINTH =
     QuoteSource('Keeping Up Appearances', QuoteCategory.SITCOM, 'hyacinth', 'hyacinth richard bucket');
+const QuoteSource SRC_INSIDE_NUMBER_9 = QuoteSource('Inside Number Nine', QuoteCategory.SITCOM, 'inside_number_9', 'inside number 9 nine');
 const QuoteSource SRC_IT_CROWD = QuoteSource('The IT Crowd', QuoteCategory.SITCOM, 'it_crowd');
 const QuoteSource SRC_PARTRIDGE = QuoteSource('Alan Partridge', QuoteCategory.SITCOM, 'partridge');
 const QuoteSource SRC_RED_DWARF = QuoteSource('Red Dwarf', QuoteCategory.SITCOM, 'red_dwarf');
