@@ -35,18 +35,13 @@ class QuoteButton extends StatelessWidget {
       child: Container(
         decoration: const BoxDecoration(
             color: Color.fromRGBO(0, 0, 0, 0.75),
-            borderRadius: BorderRadius.only(
-                bottomRight: Radius.circular(12),
-                bottomLeft: Radius.circular(12))),
+            borderRadius: BorderRadius.only(bottomRight: Radius.circular(12), bottomLeft: Radius.circular(12))),
         child: Padding(
             padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
             child: Text(
               _quote.name,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600),
+              style: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),
             )),
       ));
 }

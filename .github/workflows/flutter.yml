@@ -9,9 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: subosito/flutter-action@v1.4.0
+    - uses: subosito/flutter-action@v2.3.0
       with:
+        flutter-version: '2.10.1'
         channel: 'stable'
     - run: flutter pub get
+    - run: dart format --line-length 120 --set-exit-if-changed .
     - run: flutter analyze
     - run: flutter test

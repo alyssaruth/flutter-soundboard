@@ -1,5 +1,4 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pocket_scat/util/quote.dart';
 
@@ -11,15 +10,14 @@ class App extends StatelessWidget {
   const App(this._allQuotes);
 
   @override
-  Widget build(BuildContext context) => MaterialApp(
-      title: 'Pocket Scat',
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        primaryColor: Colors.purple,
-        accentColor: Colors.purpleAccent,
-        hintColor: Colors.white70,
-      ),
-      home: SearchableQuotes(_allQuotes));
+  Widget build(BuildContext context) {
+    final theme = ThemeData(brightness: Brightness.dark, primaryColor: Colors.purple, hintColor: Colors.white70);
 
-  AudioPlayerState getAudioPlayerState() => getPlaybackState();
+    return MaterialApp(
+        title: 'Pocket Scat',
+        theme: theme.copyWith(colorScheme: theme.colorScheme.copyWith(secondary: Colors.purpleAccent)),
+        home: SearchableQuotes(_allQuotes));
+  }
+
+  PlayerState getAudioPlayerState() => getPlaybackState();
 }

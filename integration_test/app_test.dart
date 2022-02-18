@@ -6,8 +6,10 @@ import 'package:pocket_scat/util/quote.dart';
 import 'package:pocket_scat/util/quote_source.dart';
 import 'package:pocket_scat/widget/app.dart';
 
-const PIECE_OF_YOUR_BRAIN = Quote('fawlty_piece_of_your_brain', 'Piece of your brain', SRC_FAWLTY_TOWERS, 'Is this a piece of your brain Basil');
-const ERRONEOUS_DISH = Quote('fawlty_erroneous_dish', 'Erroneous dish', SRC_FAWLTY_TOWERS, 'I have been given an erroneous dish');
+const PIECE_OF_YOUR_BRAIN = Quote(
+    'fawlty_piece_of_your_brain', 'Piece of your brain', SRC_FAWLTY_TOWERS, 'Is this a piece of your brain Basil');
+const ERRONEOUS_DISH =
+    Quote('fawlty_erroneous_dish', 'Erroneous dish', SRC_FAWLTY_TOWERS, 'I have been given an erroneous dish');
 const VERY_NICE_BRIAN = Quote('bean_very_nice_brian', 'Very nice Brian', SRC_BEAN, 'very nice brian');
 const BAD_MISS = Quote('mitchell_bad_miss_1', 'Bad Miss 1', SRC_MITCHELL_AND_WEBB, 'Oh and thats a bad miss');
 
@@ -50,11 +52,11 @@ void main() {
     await tester.tap(find.text('Piece of your brain'));
     await tester.pumpAndSettle(const Duration(milliseconds: 500));
 
-    expect(app.getAudioPlayerState(), AudioPlayerState.PLAYING);
+    expect(app.getAudioPlayerState(), PlayerState.PLAYING);
 
     await tester.pumpAndSettle(const Duration(seconds: 3));
 
-    expect(app.getAudioPlayerState(), AudioPlayerState.COMPLETED);
+    expect(app.getAudioPlayerState(), PlayerState.COMPLETED);
   });
 
   /**

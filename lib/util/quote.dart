@@ -14,8 +14,7 @@ class Quote {
   final String searchStr;
   final String imageName;
 
-  const Quote(this.filename, this.name, this.source, this.searchStr,
-      [this.imageName]);
+  const Quote(this.filename, this.name, this.source, this.searchStr, [this.imageName]);
 
   bool containsSearchTerm(String searchTerm) {
     if (searchTerm.isEmpty) return true;
@@ -46,4 +45,4 @@ class Quote {
   }
 }
 
-AudioPlayerState getPlaybackState() => _audioPlayer?.state;
+PlayerState getPlaybackState() => _audioPlayer?.state;
