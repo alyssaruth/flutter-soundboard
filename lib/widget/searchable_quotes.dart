@@ -1,5 +1,4 @@
 import 'package:dart_random_choice/dart_random_choice.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pocket_scat/util/quote.dart';
 
@@ -30,9 +29,7 @@ class SearchableQuotesState extends State<SearchableQuotes> {
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
         title: _buildAppBar(),
-        leading: IconButton(
-            icon: Icon(_searching ? Icons.close : Icons.search),
-            onPressed: _searchPressed),
+        leading: IconButton(icon: Icon(_searching ? Icons.close : Icons.search), onPressed: _searchPressed),
       ),
       body: GridView.count(
           crossAxisCount: _computeColumnCount(context),
@@ -60,13 +57,11 @@ class SearchableQuotesState extends State<SearchableQuotes> {
     }
   }
 
-  int _computeColumnCount(BuildContext context) =>
-      MediaQuery.of(context).size.width ~/ 150;
+  int _computeColumnCount(BuildContext context) => MediaQuery.of(context).size.width ~/ 150;
 
   void _searchChanged() {
     setState(() {
-      _filteredQuotes =
-          _allQuotes.where((q) => q.containsSearchTerm(_filter.text)).toList();
+      _filteredQuotes = _allQuotes.where((q) => q.containsSearchTerm(_filter.text)).toList();
     });
   }
 
