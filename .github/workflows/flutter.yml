@@ -13,5 +13,6 @@ jobs:
       with:
         channel: 'stable'
     - run: flutter pub get
+    - run: dart format --line-length 120 --set-exit-if-changed .
     - run: flutter analyze
     - run: flutter test
