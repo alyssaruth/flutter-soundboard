@@ -17,3 +17,4 @@ jobs:
     - run: dart format --line-length 120 --set-exit-if-changed .
     - run: flutter analyze
     - run: flutter test
+    - run: flutter build apk
