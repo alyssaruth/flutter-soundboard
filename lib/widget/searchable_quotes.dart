@@ -16,6 +16,7 @@ class SearchableQuotes extends StatefulWidget {
 class SearchableQuotesState extends State<SearchableQuotes> {
   final TextEditingController _filter = TextEditingController();
   final List<Quote> _allQuotes;
+  final FocusNode _searchFocus = FocusNode();
 
   List<Quote> _filteredQuotes = [];
   bool _searching = false;
@@ -35,7 +36,8 @@ class SearchableQuotesState extends State<SearchableQuotes> {
           crossAxisCount: _computeColumnCount(context),
           childAspectRatio: 1,
           padding: const EdgeInsets.all(0),
-          children: _filteredQuotes.map((q) => QuoteButton(q)).toList()),
+          children: _filteredQuotes.map((q) => QuoteButton(q)).toList(),
+          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,),
       floatingActionButton: FloatingActionButton(
         onPressed: _randomPressed,
         child: const Icon(Icons.play_arrow),
@@ -45,12 +47,12 @@ class SearchableQuotesState extends State<SearchableQuotes> {
     if (_searching) {
       return TextField(
           controller: _filter,
+          focusNode: _searchFocus,
           decoration: InputDecoration(
             prefixIcon: const Icon(Icons.search, color: Colors.white),
             hintText: 'Search...',
             suffixText: '${_filteredQuotes.length}',
           ),
-          autofocus: true,
           style: const TextStyle(color: Colors.white));
     } else {
       return const Text('Pocket Scat');
@@ -71,6 +73,9 @@ class SearchableQuotesState extends State<SearchableQuotes> {
       if (!_searching) {
         _filter.clear();
         _filteredQuotes = _allQuotes;
+        _searchFocus.unfocus();
+      } else {
+        _searchFocus.requestFocus();
       }
     });
   }
