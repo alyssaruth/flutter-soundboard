@@ -11,6 +11,17 @@ A simple soundboard app, with:
  - A search bar, allowing quotes to be filtered by their content and by other metadata such as the TV show they're from
  - 'Play random' floating action button, which will play a random quote of those returned by the current search
  - Ability to share a quote (e.g. to WhatsApp) by long-pressing on it
+
+## Setup
+
+This project uses [asdf](https://asdf-vm.com/) to manage the necessary tools. To get set up, run
+(from the root of the repo):
+
+```bash
+./init-asdf.sh
+```
+
+This will prompt you to install asdf and set up the required plugins.
  
 ## Data entry:
 
