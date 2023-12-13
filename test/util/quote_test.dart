@@ -9,12 +9,12 @@ import 'mocks.dart';
 void main() {
   group('search', () {
     test('should always contain an empty search', () {
-      const quote = Quote('file_name', 'bar', SRC_TOAST, '');
+      const quote = Quote('file_name', 'bar', SRC_ICE_AGE, '');
       expect(quote.containsSearchTerm(''), true);
     });
 
     test('should be searchable by name', () {
-      const quote = Quote('file_name', 'Some Text', SRC_TOAST, '');
+      const quote = Quote('file_name', 'Some Text', SRC_ICE_AGE, '');
       expect(quote.containsSearchTerm('Some Text'), true);
       expect(quote.containsSearchTerm('sOmE tExT'), true);
       expect(quote.containsSearchTerm('some'), true);
@@ -23,7 +23,7 @@ void main() {
     });
 
     test('should be searchable by search string', () {
-      const quote = Quote('file_name', 'Some Text', SRC_TOAST, 'the quote is actually this');
+      const quote = Quote('file_name', 'Some Text', SRC_ICE_AGE, 'the quote is actually this');
       expect(quote.containsSearchTerm('the quote is actually this'), true);
       expect(quote.containsSearchTerm('aCtUALLy'), true);
       expect(quote.containsSearchTerm('tual'), true);
@@ -31,31 +31,31 @@ void main() {
     });
 
     test('should be searchable by quote source', () {
-      const quote = Quote('file_name', 'Some Text', SRC_TOAST, '');
-      expect(quote.containsSearchTerm('toast of london'), true);
+      const quote = Quote('file_name', 'Some Text', SRC_ICE_AGE, '');
+      expect(quote.containsSearchTerm('ice age'), true);
       expect(quote.containsSearchTerm('curb'), false);
     });
   });
 
   group('getImage', () {
     test('should return its own image path if one is specified', () {
-      const quote = Quote('file_name', 'Some text', SRC_TOAST, 'some search terms', 'my_custom_image');
+      const quote = Quote('file_name', 'Some text', SRC_ICE_AGE, 'some search terms', 'my_custom_image');
       final img = quote.getImage();
 
       expect(img.keyName, 'assets/images/my_custom_image.png');
     });
 
     test('should fall back on source image path if not specified', () {
-      const quote = Quote('file_name', 'Some text', SRC_TOAST, 'some search terms');
+      const quote = Quote('file_name', 'Some text', SRC_ICE_AGE, 'some search terms');
       final img = quote.getImage();
 
-      expect(img.keyName, 'assets/images/toast.png');
+      expect(img.keyName, 'assets/images/sid.png');
     });
   });
 
   group('playback', () {
     test('should play the associated audio file', () async {
-      const quote = Quote('file_name', 'Some text', SRC_TOAST, '');
+      const quote = Quote('file_name', 'Some text', SRC_ICE_AGE, '');
       audioCache = MockAudioCache();
       await quote.play();
 
@@ -64,7 +64,7 @@ void main() {
     });
 
     test('should stop the previous audio player if it exists before playing a new sound', () async {
-      const quoteOne = Quote('file_name', 'Some text', SRC_TOAST, '');
+      const quoteOne = Quote('file_name', 'Some text', SRC_ICE_AGE, '');
       const quoteTwo = Quote('other_file', 'Other text', SRC_RAINBOW, '');
 
       audioCache = MockAudioCache();
@@ -84,7 +84,7 @@ void main() {
 
   group('sharing', () {
     test('should share the audio file', () async {
-      const quote = Quote('file_name', 'Some text', SRC_TOAST, '');
+      const quote = Quote('file_name', 'Some text', SRC_ICE_AGE, '');
       final buildContext = MockBuildContext();
       fileSharer = MockFileSharer();
 
