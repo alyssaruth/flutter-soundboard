@@ -65,7 +65,7 @@ void main() {
 
     test('should stop the previous audio player if it exists before playing a new sound', () async {
       const quoteOne = Quote('file_name', 'Some text', SRC_ICE_AGE, '');
-      const quoteTwo = Quote('other_file', 'Other text', SRC_RAINBOW, '');
+      const quoteTwo = Quote('other_file', 'Other text', SRC_BEAN, '');
 
       audioCache = MockAudioCache();
       final audioPlayer = MockAudioPlayer();
