@@ -34,10 +34,10 @@ const List<Quote> ALL_QUOTES = [
   Quote('ntnon_come_back_out_again', 'It\'s come out again', SRC_NTNON,
       'would you believe it went in but it\'s its come out again'),
   Quote('ntnon_no_clues', 'No clues!', SRC_NTNON, 'ah no no clues'),
-
   Quote('hustle_dodgy_git', 'You dodgy git', SRC_HUSTLE, '30 thirty grand ash danny'),
   Quote('hustle_funny_money', 'Funny money', SRC_HUSTLE, 'None of that funny money'),
-  Quote('dexter_more_comfortable', 'More comfortable', SRC_DEXTER, 'I can get a sandwich if it makes you more comfortable', 'lundy'),
+  Quote('dexter_more_comfortable', 'More comfortable', SRC_DEXTER,
+      'I can get a sandwich if it makes you more comfortable', 'lundy'),
   Quote('bean_another_ticket', 'Get another ticket', SRC_BEAN,
       'why don\'t dont you get another ticket might be more fun second time round'),
   Quote('bean_brace_yourself', 'Brace yourself', SRC_BEAN, 'brace yourself'),
@@ -84,7 +84,6 @@ const List<Quote> ALL_QUOTES = [
   Quote('hyacinth_richard', 'Richard!', SRC_HYACINTH, ''),
   Quote('hyacinth_sheridan', 'Sheridan', SRC_HYACINTH, 'sheridan how lovely of you to call'),
   Quote('hyacinth_sheridan_how_much', 'How much?', SRC_HYACINTH, 'you need how much'),
-
   Quote('bargain_hunt_swap', 'A negotiated swap', SRC_BARGAIN_HUNT, 'we have a swap we do love a swap negotiated swap'),
   Quote('chase_day_at_the_office', 'Another day at the office', SRC_THE_CHASE, 'just another day at the office shaun'),
   Quote('ice_age_doesnt_anyone_care', 'Doesn\'t anyone care?', SRC_ICE_AGE,
@@ -108,7 +107,6 @@ const List<Quote> ALL_QUOTES = [
   Quote('rat_race_hope_i_win', 'I hope I win', SRC_RAT_RACE, 'a race I hope i win'),
   Quote('rat_race_im_winning', 'I\'m winning', SRC_RAT_RACE, 'a race a race im winning im winning'),
   Quote('rat_race_screwed', 'I make joke', SRC_RAT_RACE, 'I make joke to help you forget how screwed you are'),
-
   Quote('noahs_island_oisky_poisky', 'Oisky Poisky', SRC_NOAHS_ISLAND, 'oisky poisky'),
   Quote('art_attack_the_head', 'The Head!', SRC_ART_ATTACK, 'hello its it\'s me again the head'),
   Quote('wallace_no_cheese', 'No cheese Gromit', SRC_WALLACE_AND_GROMIT, 'no cheese gromit not a bit in the house'),

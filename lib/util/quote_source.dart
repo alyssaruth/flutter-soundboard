@@ -16,7 +16,8 @@ class QuoteSource {
   }
 }
 
-const QuoteSource SRC_NO_MORE_JOCKEYS = QuoteSource('No More Jockeys', QuoteCategory.SKETCH, 'nmj_horne', 'alex horne tim key mark watson watto');
+const QuoteSource SRC_NO_MORE_JOCKEYS =
+    QuoteSource('No More Jockeys', QuoteCategory.SKETCH, 'nmj_horne', 'alex horne tim key mark watson watto');
 const QuoteSource SRC_MITCHELL_AND_WEBB = QuoteSource('Mitchell and Webb', QuoteCategory.SKETCH, 'mitchell_and_webb');
 const QuoteSource SRC_NTNON = QuoteSource('Not the Nine O\'Clock News', QuoteCategory.SKETCH, 'ntnon');
 const QuoteSource SRC_MONTY_PYTHON = QuoteSource('Monty Python', QuoteCategory.SKETCH, 'monty_python');
