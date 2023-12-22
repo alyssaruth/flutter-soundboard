@@ -2,12 +2,13 @@ import 'quote.dart';
 import 'quote_source.dart';
 
 const List<Quote> ALL_QUOTES = [
+  // Sketch
   Quote('nmj_aksac_horne', 'Mert Aksac', SRC_NO_MORE_JOCKEYS, 'Mert Aksac', 'nmj_horne'),
   Quote('nmj_aksac_key', 'Mert Aksac', SRC_NO_MORE_JOCKEYS, 'Mert Aksac', 'nmj_key'),
   Quote('nmj_aksac_watto', 'Mert Aksac', SRC_NO_MORE_JOCKEYS, 'Mert Aksac', 'nmj_watto'),
   Quote('nmj_kitchen_conversions', 'Kitchen Conversions', SRC_NO_MORE_JOCKEYS, 'Woah kitchen conversions', 'nmj_watto'),
   Quote('nmj_unicorn_mug', 'Boop boop', SRC_NO_MORE_JOCKEYS, 'Boop boop unicorn mug', 'nmj_watto'),
-  Quote('nmj_unicorn_mug_2', 'Bop bop', SRC_NO_MORE_JOCKEYS, 'Boop boop unicorn mug', 'nmj_key'),
+  Quote('nmj_unicorn_mug_2', 'Bop bop', SRC_NO_MORE_JOCKEYS, 'Bop bop unicorn mug', 'nmj_key'),
   Quote('mitchell_bad_miss_1', 'Bad Miss 1', SRC_MITCHELL_AND_WEBB, 'Oh and that\'s a bad miss', 'mitchell_snooker'),
   Quote('mitchell_bad_miss_2', 'Bad Miss 2', SRC_MITCHELL_AND_WEBB, 'Oh and that\'s a bad miss', 'mitchell_snooker'),
   Quote('mitchell_digby_1', 'Dun dunna dun #1', SRC_MITCHELL_AND_WEBB, 'dun dala dun sir digby chicken caesar',
@@ -34,21 +35,27 @@ const List<Quote> ALL_QUOTES = [
   Quote('ntnon_come_back_out_again', 'It\'s come out again', SRC_NTNON,
       'would you believe it went in but it\'s its come out again'),
   Quote('ntnon_no_clues', 'No clues!', SRC_NTNON, 'ah no no clues'),
+
+  // TV
   Quote('hustle_dodgy_git', 'You dodgy git', SRC_HUSTLE, '30 thirty grand ash danny'),
   Quote('hustle_funny_money', 'Funny money', SRC_HUSTLE, 'None of that funny money'),
+  Quote('dexter_hello_dexter_morgan', 'Hello, Dexter Morgan', SRC_DEXTER, 'hello dexter morgan trinity arthur mitchell'),
   Quote('dexter_more_comfortable', 'More comfortable', SRC_DEXTER,
       'I can get a sandwich if it makes you more comfortable', 'lundy'),
-  Quote('bean_another_ticket', 'Get another ticket', SRC_BEAN,
-      'why don\'t dont you get another ticket might be more fun second time round'),
+  Quote('dexter_one_o_clock', 'It\'s one o\'clock', SRC_DEXTER,
+      'its one o clock i always stop and have lunch at one o clock 1 o clock 1:00', 'lundy'),
+  Quote('dexter_pardon_my_tits', 'Pardon my tits', SRC_DEXTER, 'pardon my tits'),
+  Quote('dexter_reinvent_the_wheel', 'Reinvent the wheel', SRC_DEXTER, 'maybe you should just learn the basics before you reinvent the damn wheel'),
+  Quote('dexter_surprise_motherfucker', 'Surprise', SRC_DEXTER, 'surprise motherfucker motherfucka'),
+  Quote('dexter_take_a_picture', 'Take a picture', SRC_DEXTER, 'why dont you take a picture morgan itll last longer'),
+  Quote('dexter_tick_tick_tick', 'Tick tick tick', SRC_DEXTER, 'tick tick tick thats the sound of your life running out'),
+  Quote('dexter_woo_woo_shit', 'Woo woo shit', SRC_DEXTER, 'angel you keep up with this woo woo shit ima walk right through you'),
   Quote('bean_brace_yourself', 'Brace yourself', SRC_BEAN, 'brace yourself'),
-  Quote('bean_clean_it_up', 'Clean it up', SRC_BEAN, 'clean it up'),
   Quote('bean_fruitcake', 'Fruitcake', SRC_BEAN, 'looks like a fruitcake to me'),
   Quote('bean_im_driving', 'I\'m driving', SRC_BEAN, 'no no no I\'m im driving'),
-  Quote('bean_last_year', 'Calculus', SRC_BEAN, 'i believe they concentrated on calculus last year'),
   Quote('bean_look_at_the_time', 'Look at the time!', SRC_BEAN, 'look at the time'),
   Quote('bean_not_necessarily', 'Not... necessarily', SRC_BEAN, 'not necessarily'),
   Quote('bean_not_that_i_know_of', 'Not that I know of', SRC_BEAN, 'not that I know of'),
-  Quote('bean_oh_dear', 'Oh... oh dear', SRC_BEAN, 'oh oh dear'),
   Quote('bean_sunday', 'Sunday!', SRC_BEAN, 'sunday'),
   Quote('bean_very_nice_brian', 'Very nice Brian', SRC_BEAN, 'very nice brian'),
   Quote('b99_bingpot', 'Bingpot!', SRC_B99, 'bingpot'),
@@ -84,6 +91,8 @@ const List<Quote> ALL_QUOTES = [
   Quote('hyacinth_richard', 'Richard!', SRC_HYACINTH, ''),
   Quote('hyacinth_sheridan', 'Sheridan', SRC_HYACINTH, 'sheridan how lovely of you to call'),
   Quote('hyacinth_sheridan_how_much', 'How much?', SRC_HYACINTH, 'you need how much'),
+
+  // Misc
   Quote('bargain_hunt_swap', 'A negotiated swap', SRC_BARGAIN_HUNT, 'we have a swap we do love a swap negotiated swap'),
   Quote('chase_day_at_the_office', 'Another day at the office', SRC_THE_CHASE, 'just another day at the office shaun'),
   Quote('ice_age_doesnt_anyone_care', 'Doesn\'t anyone care?', SRC_ICE_AGE,
@@ -104,6 +113,8 @@ const List<Quote> ALL_QUOTES = [
   Quote('jonny_english_pegasus', 'Pegasus!', SRC_JOHNNY_ENGLISH, 'we must report to pegasus'),
   Quote('jonny_english_poo_tube', 'Poo tube', SRC_JOHNNY_ENGLISH,
       'i dont know why you climbed up that awful poo tube when there was a perfectly good ladder right beside it'),
+
+  // Kids TV
   Quote('rat_race_hope_i_win', 'I hope I win', SRC_RAT_RACE, 'a race I hope i win'),
   Quote('rat_race_im_winning', 'I\'m winning', SRC_RAT_RACE, 'a race a race im winning im winning'),
   Quote('rat_race_screwed', 'I make joke', SRC_RAT_RACE, 'I make joke to help you forget how screwed you are'),

@@ -22,16 +22,16 @@ const QuoteSource SRC_MITCHELL_AND_WEBB = QuoteSource('Mitchell and Webb', Quote
 const QuoteSource SRC_NTNON = QuoteSource('Not the Nine O\'Clock News', QuoteCategory.SKETCH, 'ntnon');
 const QuoteSource SRC_MONTY_PYTHON = QuoteSource('Monty Python', QuoteCategory.SKETCH, 'monty_python');
 
-const QuoteSource SRC_HUSTLE = QuoteSource('Hustle', QuoteCategory.SITCOM, 'hustle', 'hustle');
-const QuoteSource SRC_DEXTER = QuoteSource('Dexter', QuoteCategory.SITCOM, 'doakes', 'dexter lundy doakes');
+const QuoteSource SRC_HUSTLE = QuoteSource('Hustle', QuoteCategory.TV, 'hustle', 'hustle');
+const QuoteSource SRC_DEXTER = QuoteSource('Dexter', QuoteCategory.TV, 'doakes', 'dexter lundy doakes');
 const QuoteSource SRC_FAWLTY_TOWERS =
-    QuoteSource('Fawlty Towers', QuoteCategory.SITCOM, 'fawlty_towers', 'basil manuel');
-const QuoteSource SRC_BEAN = QuoteSource('Mr. Bean', QuoteCategory.SITCOM, 'bean', 'mr bean');
-const QuoteSource SRC_FRIENDS = QuoteSource('Friends', QuoteCategory.SITCOM, 'friends');
+    QuoteSource('Fawlty Towers', QuoteCategory.TV, 'fawlty_towers', 'basil manuel');
+const QuoteSource SRC_BEAN = QuoteSource('Mr. Bean', QuoteCategory.TV, 'bean', 'mr bean');
+const QuoteSource SRC_FRIENDS = QuoteSource('Friends', QuoteCategory.TV, 'friends');
 const QuoteSource SRC_HYACINTH =
-    QuoteSource('Keeping Up Appearances', QuoteCategory.SITCOM, 'hyacinth', 'hyacinth richard bucket');
-const QuoteSource SRC_DADS_ARMY = QuoteSource('Dad\'s Army', QuoteCategory.SITCOM, 'dads_army', 'dads army');
-const QuoteSource SRC_B99 = QuoteSource('Brooklyn 99', QuoteCategory.SITCOM, 'holt', 'raymond ray holt');
+    QuoteSource('Keeping Up Appearances', QuoteCategory.TV, 'hyacinth', 'hyacinth richard bucket');
+const QuoteSource SRC_DADS_ARMY = QuoteSource('Dad\'s Army', QuoteCategory.TV, 'dads_army', 'dads army');
+const QuoteSource SRC_B99 = QuoteSource('Brooklyn 99', QuoteCategory.TV, 'holt', 'raymond ray holt');
 
 const QuoteSource SRC_THE_CHASE = QuoteSource('The Chase', QuoteCategory.MISC, 'the_chase');
 const QuoteSource SRC_JOHNNY_ENGLISH = QuoteSource('Johnny English', QuoteCategory.MISC, 'johnny_english', 'jonny');

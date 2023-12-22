@@ -18,9 +18,9 @@ void main() {
   });
 
   test('should be searchable by quote category', () {
-    const source = QuoteSource('Some Show', QuoteCategory.SITCOM, '');
-    expect(source.containsSearchTerm('sitcom'), true);
-    expect(source.containsSearchTerm('SiTcOm'), true);
+    const source = QuoteSource('Some Show', QuoteCategory.SKETCH, '');
+    expect(source.containsSearchTerm('sketch'), true);
+    expect(source.containsSearchTerm('SkEtCH'), true);
     expect(source.containsSearchTerm('kids tv'), false);
   });
 }
