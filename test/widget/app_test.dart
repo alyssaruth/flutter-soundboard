@@ -18,7 +18,7 @@ void main() {
     await tester.tap(find.byIcon(Icons.search));
     await tester.pump();
 
-    await tester.enterText(find.byType(TextField), quoteB.name);
+    await tester.enterText(find.byType(TextField), quoteB.name.substring(2));
     await tester.pump();
 
     // Verify that our search has been applied
