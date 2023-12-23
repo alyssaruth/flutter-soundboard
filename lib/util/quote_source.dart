@@ -24,8 +24,7 @@ const QuoteSource SRC_MONTY_PYTHON = QuoteSource('Monty Python', QuoteCategory.S
 
 const QuoteSource SRC_HUSTLE = QuoteSource('Hustle', QuoteCategory.TV, 'hustle', 'hustle');
 const QuoteSource SRC_DEXTER = QuoteSource('Dexter', QuoteCategory.TV, 'doakes', 'dexter lundy doakes');
-const QuoteSource SRC_FAWLTY_TOWERS =
-    QuoteSource('Fawlty Towers', QuoteCategory.TV, 'fawlty_towers', 'basil manuel');
+const QuoteSource SRC_FAWLTY_TOWERS = QuoteSource('Fawlty Towers', QuoteCategory.TV, 'fawlty_towers', 'basil manuel');
 const QuoteSource SRC_BEAN = QuoteSource('Mr. Bean', QuoteCategory.TV, 'bean', 'mr bean');
 const QuoteSource SRC_FRIENDS = QuoteSource('Friends', QuoteCategory.TV, 'friends');
 const QuoteSource SRC_HYACINTH =
