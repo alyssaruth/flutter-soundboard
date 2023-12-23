@@ -37,7 +37,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.burlton.pocket_scat"
+        applicationId "com.burlton.no_more_quotes"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
