@@ -19,6 +19,23 @@ void main() {
       expect(exists, isTrue, reason: '$expectedPath does not exist');
     }
   });
+
+  test('all assets should be used by at least one quote', () {
+    final assetFolderPath = Platform.environment['UNIT_TEST_ASSETS'];
+    final directory = Directory('$assetFolderPath/assets');
+    final assets = directory.listSync(recursive: true);
+    for (final asset in assets) {
+      final path = asset.path.replaceFirst('$assetFolderPath/', '');
+
+      if (path.endsWith('.wav')) {
+        final quotes = ALL_QUOTES.where((quote) => 'assets/${quote.filename}.wav' == path);
+        expect(quotes.isNotEmpty, isTrue, reason: '$path does not have a corresponding quote');
+      } else if (path.endsWith('.png')) {
+        final quotes = ALL_QUOTES.where((quote) => quote.getImage().assetName == path);
+        expect(quotes.isNotEmpty, isTrue, reason: '$path does not have a corresponding quote');
+      }
+    }
+  });
 }
 
 File _getProjectFile(String path) {
