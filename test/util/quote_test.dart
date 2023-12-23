@@ -8,7 +8,7 @@ import 'package:pocket_scat/util/quote.dart';
 import 'mocks.dart';
 
 void main() {
-  const sourceA = QuoteSource('Toast of London', QuoteCategory.SITCOM, 'toast');
+  const sourceA = QuoteSource('Toast of London', QuoteCategory.TV, 'toast');
   const sourceB = QuoteSource('Rainbow', QuoteCategory.KIDS_TV, 'rainbow');
 
   group('search', () {
