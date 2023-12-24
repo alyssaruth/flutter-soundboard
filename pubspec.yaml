@@ -25,7 +25,7 @@ dev_dependencies:
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: assets/images/doakes.png
+  image_path: assets/images/nmj_horne.png
 
 # The following section is specific to Flutter.
 flutter:
