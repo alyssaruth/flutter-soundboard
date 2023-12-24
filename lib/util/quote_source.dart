@@ -23,7 +23,6 @@ const QuoteSource SRC_MONTY_PYTHON = QuoteSource('Monty Python', QuoteCategory.S
 
 const QuoteSource SRC_HUSTLE = QuoteSource('Hustle', QuoteCategory.TV, 'hustle', 'hustle');
 const QuoteSource SRC_DEXTER = QuoteSource('Dexter', QuoteCategory.TV, 'doakes', 'dexter lundy doakes');
-const QuoteSource SRC_FAWLTY_TOWERS = QuoteSource('Fawlty Towers', QuoteCategory.TV, 'fawlty_towers', 'basil manuel');
 const QuoteSource SRC_BEAN = QuoteSource('Mr. Bean', QuoteCategory.TV, 'bean', 'mr bean');
 const QuoteSource SRC_FRIENDS = QuoteSource('Friends', QuoteCategory.TV, 'friends');
 const QuoteSource SRC_HYACINTH =
@@ -33,7 +32,6 @@ const QuoteSource SRC_B99 = QuoteSource('Brooklyn 99', QuoteCategory.TV, 'holt',
 
 const QuoteSource SRC_THE_CHASE = QuoteSource('The Chase', QuoteCategory.MISC, 'the_chase');
 const QuoteSource SRC_JOHNNY_ENGLISH = QuoteSource('Johnny English', QuoteCategory.MISC, 'johnny_english', 'jonny');
-const QuoteSource SRC_RAT_RACE = QuoteSource('Rat Race', QuoteCategory.MISC, 'rat_race');
 const QuoteSource SRC_BARGAIN_HUNT = QuoteSource('Bargain Hunt', QuoteCategory.MISC, 'bargain_hunt', 'tim wonnacott');
 const QuoteSource SRC_ICE_AGE = QuoteSource('Ice Age', QuoteCategory.MISC, 'ice_age', 'sid');
 

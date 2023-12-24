@@ -60,11 +60,6 @@ const List<Quote> ALL_QUOTES = [
   Quote('dads_army_dont_like_it_up_em', 'Don\'t like it up \'em', SRC_DADS_ARMY, 'they don\'t dont like it up em'),
   Quote('dads_army_dont_panic_anyone', 'Don\'t panic', SRC_DADS_ARMY, 'don\'t dont panic anyone'),
   Quote('dads_army_dont_panic_mr_mainwaring', 'Don\'t panic #2', SRC_DADS_ARMY, 'don\'t dont panic mr mainwaring'),
-  Quote('fawlty_erroneous_dish', 'Erroneous dish', SRC_FAWLTY_TOWERS, 'I have been given an erroneous dish'),
-  Quote('fawlty_piece_of_your_brain', 'Piece of your brain', SRC_FAWLTY_TOWERS, 'Is this a piece of your brain Basil'),
-  Quote('fawlty_where_did_you_get_it', 'Where did you get it?', SRC_FAWLTY_TOWERS, 'where did you get it Basil'),
-  Quote('fawlty_how_did_you_get_it', 'How did you get it?', SRC_FAWLTY_TOWERS,
-      'that\'s right i mean how did you get it Fawlty Basil'),
   Quote('friends_uberweiss', 'Uberweiss!', SRC_FRIENDS, 'uberweiss'),
   Quote('hyacinth_blind', 'Thought I\'d gone blind', SRC_HYACINTH, 'thank god for that I thought I\'d gone blind',
       'onslo'),
@@ -101,9 +96,6 @@ const List<Quote> ALL_QUOTES = [
       'i dont know why you climbed up that awful poo tube when there was a perfectly good ladder right beside it'),
 
   // Kids TV
-  Quote('rat_race_hope_i_win', 'I hope I win', SRC_RAT_RACE, 'a race I hope i win'),
-  Quote('rat_race_im_winning', 'I\'m winning', SRC_RAT_RACE, 'a race a race im winning im winning'),
-  Quote('rat_race_screwed', 'I make joke', SRC_RAT_RACE, 'I make joke to help you forget how screwed you are'),
   Quote('noahs_island_oisky_poisky', 'Oisky Poisky', SRC_NOAHS_ISLAND, 'oisky poisky'),
   Quote('art_attack_the_head', 'The Head!', SRC_ART_ATTACK, 'hello its it\'s me again the head'),
   Quote('wallace_no_cheese', 'No cheese Gromit', SRC_WALLACE_AND_GROMIT, 'no cheese gromit not a bit in the house'),
