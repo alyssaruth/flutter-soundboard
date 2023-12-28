@@ -53,7 +53,7 @@ class SearchableQuotesState extends State<SearchableQuotes> {
           autofocus: true,
           style: const TextStyle(color: Colors.white));
     } else {
-      return const Text('Pocket Scat');
+      return const Text('No More Quotes');
     }
   }
 
