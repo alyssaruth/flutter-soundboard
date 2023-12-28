@@ -3,7 +3,11 @@ import 'quote_source.dart';
 
 const List<Quote> ALL_QUOTES = [
   // Sketch
+  Quote('nmj_big_if_horne', 'Big if', SRC_NO_MORE_JOCKEYS, 'big if', 'nmj_horne'),
+  Quote('nmj_big_if_key', 'Big if', SRC_NO_MORE_JOCKEYS, 'big if', 'nmj_key'),
+  Quote('nmj_big_if_watto', 'Big if', SRC_NO_MORE_JOCKEYS, 'big if', 'nmj_watto'),
   Quote('nmj_dont_mind_it_horne', 'Don\'t mind it', SRC_NO_MORE_JOCKEYS, 'dont mind it', 'nmj_horne'),
+  Quote('nmj_fiddly', 'Fiddly', SRC_NO_MORE_JOCKEYS, 'oh this is fiddly now', 'nmj_watto'),
   Quote('nmj_key_to_start_horne', 'Key to start', SRC_NO_MORE_JOCKEYS, 'key to start', 'nmj_horne'),
   Quote('nmj_mert_aksac_horne', 'Mert Aksac', SRC_NO_MORE_JOCKEYS, 'Mert Aksac', 'nmj_horne'),
   Quote('nmj_mert_aksac_key', 'Mert Aksac', SRC_NO_MORE_JOCKEYS, 'Mert Aksac', 'nmj_key'),
@@ -12,11 +16,6 @@ const List<Quote> ALL_QUOTES = [
   Quote('nmj_unicorn_mug', 'Boop boop', SRC_NO_MORE_JOCKEYS, 'Boop boop unicorn mug', 'nmj_watto'),
   Quote('nmj_unicorn_mug_2', 'Bop bop', SRC_NO_MORE_JOCKEYS, 'Bop bop unicorn mug', 'nmj_key'),
   Quote('nmj_yet_key', 'Yet', SRC_NO_MORE_JOCKEYS, 'yet', 'nmj_key'),
-  Quote('monty_python_elderberries', 'Elderberries', SRC_MONTY_PYTHON,
-      'your mother was a hamster and your father smelled of elderberries'),
-  Quote('monty_python_english_pigdogs', 'English pigdogs', SRC_MONTY_PYTHON, 'you do not scare me you english pigdogs'),
-  Quote('monty_python_ex_parrot', 'Ex-parrot', SRC_MONTY_PYTHON, 'this is an ex parrot'),
-  Quote('monty_python_fart_in_your_general_direction', 'Fart', SRC_MONTY_PYTHON, 'i fart in your general direction'),
   Quote('ntnon_come_back_out_again', 'It\'s come out again', SRC_NTNON,
       'would you believe it went in but it\'s its come out again'),
   Quote('ntnon_no_clues', 'No clues!', SRC_NTNON, 'ah no no clues'),
@@ -24,8 +23,8 @@ const List<Quote> ALL_QUOTES = [
   // TV
   Quote('hustle_dodgy_git', 'You dodgy git', SRC_HUSTLE, '30 thirty grand ash danny'),
   Quote('hustle_funny_money', 'Funny money', SRC_HUSTLE, 'None of that funny money'),
-  Quote(
-      'dexter_hello_dexter_morgan', 'Hello, Dexter Morgan', SRC_DEXTER, 'hello dexter morgan trinity arthur mitchell', 'trinity'),
+  Quote('dexter_hello_dexter_morgan', 'Hello, Dexter Morgan', SRC_DEXTER, 'hello dexter morgan trinity arthur mitchell',
+      'trinity'),
   Quote('dexter_more_comfortable', 'More comfortable', SRC_DEXTER,
       'I can get a sandwich if it makes you more comfortable', 'lundy'),
   Quote('dexter_one_o_clock', 'It\'s one o\'clock', SRC_DEXTER,
@@ -35,8 +34,8 @@ const List<Quote> ALL_QUOTES = [
       'maybe you should just learn the basics before you reinvent the damn wheel'),
   Quote('dexter_surprise_motherfucker', 'Surprise', SRC_DEXTER, 'surprise motherfucker motherfucka'),
   Quote('dexter_take_a_picture', 'Take a picture', SRC_DEXTER, 'why dont you take a picture morgan itll last longer'),
-  Quote(
-      'dexter_tick_tick_tick', 'Tick tick tick', SRC_DEXTER, 'tick tick tick thats the sound of your life running out', 'dexter_jordan_chase'),
+  Quote('dexter_tick_tick_tick', 'Tick tick tick', SRC_DEXTER,
+      'tick tick tick thats the sound of your life running out', 'dexter_jordan_chase'),
   Quote('dexter_woo_woo_shit', 'Woo woo shit', SRC_DEXTER,
       'angel you keep up with this woo woo shit ima walk right through you'),
   Quote('bean_brace_yourself', 'Brace yourself', SRC_BEAN, 'brace yourself'),
