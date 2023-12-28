@@ -18,7 +18,6 @@ class QuoteSource {
 
 const QuoteSource SRC_HUSTLE = QuoteSource('Hustle', QuoteCategory.TV, 'hustle', 'hustle');
 const QuoteSource SRC_DEXTER = QuoteSource('Dexter', QuoteCategory.TV, 'doakes', 'dexter lundy doakes');
-const QuoteSource SRC_BEAN = QuoteSource('Mr. Bean', QuoteCategory.TV, 'bean', 'mr bean');
 const QuoteSource SRC_FRIENDS = QuoteSource('Friends', QuoteCategory.TV, 'friends');
 const QuoteSource SRC_HYACINTH =
     QuoteSource('Keeping Up Appearances', QuoteCategory.TV, 'hyacinth', 'hyacinth richard bucket');
