@@ -30,8 +30,6 @@ const QuoteSource SRC_HYACINTH =
 const QuoteSource SRC_DADS_ARMY = QuoteSource('Dad\'s Army', QuoteCategory.TV, 'dads_army', 'dads army');
 const QuoteSource SRC_B99 = QuoteSource('Brooklyn 99', QuoteCategory.TV, 'holt', 'raymond ray holt');
 
-const QuoteSource SRC_THE_CHASE = QuoteSource('The Chase', QuoteCategory.MISC, 'the_chase');
-const QuoteSource SRC_JOHNNY_ENGLISH = QuoteSource('Johnny English', QuoteCategory.MISC, 'johnny_english', 'jonny');
 const QuoteSource SRC_BARGAIN_HUNT = QuoteSource('Bargain Hunt', QuoteCategory.MISC, 'bargain_hunt', 'tim wonnacott');
 const QuoteSource SRC_ICE_AGE = QuoteSource('Ice Age', QuoteCategory.MISC, 'ice_age', 'sid');
 
