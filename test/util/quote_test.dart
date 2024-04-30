@@ -1,15 +1,15 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:pocket_scat/util/injected_things.dart';
-import 'package:pocket_scat/util/quote.dart';
 import 'package:pocket_scat/util/quote_category.dart';
 import 'package:pocket_scat/util/quote_source.dart';
+import 'package:pocket_scat/util/quote.dart';
 
 import 'mocks.dart';
 
 void main() {
-  const sourceA = QuoteSource('Fawlty Towers', QuoteCategory.SITCOM, 'fawlty_towers', 'basil manuel');
-  const sourceB = QuoteSource('Mr. Bean', QuoteCategory.SITCOM, 'bean', 'mr bean');
+  const sourceA = QuoteSource('Toast of London', QuoteCategory.SITCOM, 'toast');
+  const sourceB = QuoteSource('Rainbow', QuoteCategory.KIDS_TV, 'rainbow');
 
   group('search', () {
     test('should always contain an empty search', () {
@@ -36,8 +36,8 @@ void main() {
 
     test('should be searchable by quote source', () {
       const quote = Quote('file_name', 'Some Text', sourceA, '');
-      expect(quote.containsSearchTerm('fawlty'), true);
-      expect(quote.containsSearchTerm('bean'), false);
+      expect(quote.containsSearchTerm('toast of london'), true);
+      expect(quote.containsSearchTerm('curb'), false);
     });
   });
 
@@ -53,7 +53,7 @@ void main() {
       const quote = Quote('file_name', 'Some text', sourceA, 'some search terms');
       final img = quote.getImage();
 
-      expect(img.keyName, 'assets/images/fawlty_towers.png');
+      expect(img.keyName, 'assets/images/toast.png');
     });
   });
 

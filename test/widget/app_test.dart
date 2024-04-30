@@ -3,12 +3,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pocket_scat/util/quotes_list.dart';
 import 'package:pocket_scat/widget/app.dart';
 
-final quoteA = ALL_QUOTES[0];
-final quoteB = ALL_QUOTES[1];
+final testQuotes = ALL_QUOTES.sublist(0, 5);
+final quoteA = testQuotes[0];
+final quoteB = testQuotes[1];
 
 void main() {
   testWidgets('Should search quotes, and clear the search when cancelled', (WidgetTester tester) async {
-    await tester.pumpWidget(const App(ALL_QUOTES));
+    await tester.pumpWidget(App(testQuotes));
 
     expect(find.text(quoteA.name), findsOneWidget);
     expect(find.text(quoteB.name), findsOneWidget);

@@ -1,4 +1,4 @@
-# Flutter Soundboard
+# Pocket Scat
 
 <p align="center">
 <img align="center" src="https://user-images.githubusercontent.com/5732536/76313150-52c95c80-62cc-11ea-9cdc-4d272229aa5b.jpg" width="300" alt="screenshot">

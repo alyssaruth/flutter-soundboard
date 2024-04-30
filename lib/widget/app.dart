@@ -14,7 +14,7 @@ class App extends StatelessWidget {
     final theme = ThemeData(brightness: Brightness.dark, primaryColor: Colors.purple, hintColor: Colors.white70);
 
     return MaterialApp(
-        title: 'Soundboard',
+        title: 'Pocket Scat',
         theme: theme.copyWith(colorScheme: theme.colorScheme.copyWith(secondary: Colors.purpleAccent)),
         home: SearchableQuotes(_allQuotes));
   }
