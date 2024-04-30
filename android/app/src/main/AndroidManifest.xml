@@ -7,7 +7,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="${applicationName}"
-        android:label="pocket_scat"
+        android:label="Pocket Scat"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name="io.flutter.embedding.android.FlutterActivity"
