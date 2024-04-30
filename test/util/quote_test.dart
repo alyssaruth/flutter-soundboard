@@ -2,13 +2,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:pocket_scat/util/injected_things.dart';
 import 'package:pocket_scat/util/quote.dart';
+import 'package:pocket_scat/util/quote_category.dart';
+import 'package:pocket_scat/util/quote_source.dart';
 
 import 'mocks.dart';
-import 'test_quotes.dart';
 
 void main() {
-  const sourceA = SRC_FAWLTY_TOWERS;
-  const sourceB = SRC_BEAN;
+  const sourceA = QuoteSource('Fawlty Towers', QuoteCategory.SITCOM, 'fawlty_towers', 'basil manuel');
+  const sourceB = QuoteSource('Mr. Bean', QuoteCategory.SITCOM, 'bean', 'mr bean');
 
   group('search', () {
     test('should always contain an empty search', () {
