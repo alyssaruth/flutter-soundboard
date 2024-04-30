@@ -4,10 +4,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:pocket_scat/util/quotes_list.dart';
 import 'package:pocket_scat/widget/app.dart';
+import 'package:pocket_scat/widget/quote_button.dart';
 
-final testQuotes = ALL_QUOTES.sublist(0, 5);
-final quoteA = testQuotes[0];
-final quoteB = testQuotes[1];
+final quoteOne = ALL_QUOTES[0];
+final quoteTwo = ALL_QUOTES[1];
+final testQuotes = [quoteOne, quoteTwo];
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
@@ -15,35 +16,35 @@ void main() {
   testWidgets('can filter by search and cancel search', (WidgetTester tester) async {
     await tester.pumpWidget(App(testQuotes));
 
-    expect(find.text(quoteA.name), findsOneWidget);
-    expect(find.text(quoteB.name), findsOneWidget);
+    expect(find.widgetWithText(QuoteButton, quoteOne.name), findsOneWidget);
+    expect(find.widgetWithText(QuoteButton, quoteTwo.name), findsOneWidget);
 
     // Tap the search icon and enter text
     await tester.tap(find.byIcon(Icons.search));
     await tester.pump();
 
-    await tester.enterText(find.byType(TextField), quoteB.name.substring(2));
+    await tester.enterText(find.byType(TextField), quoteTwo.name);
     await tester.pump();
 
     // Verify that our search has been applied
-    expect(find.text(quoteA.name), findsNothing);
-    expect(find.text(quoteB.name), findsOneWidget);
+    expect(find.widgetWithText(QuoteButton, quoteOne.name), findsNothing);
+    expect(find.widgetWithText(QuoteButton, quoteTwo.name), findsOneWidget);
 
     // Close the search
     await tester.tap(find.byIcon(Icons.close));
     await tester.pump();
 
     // Search should be cancelled
-    expect(find.text(quoteA.name), findsOneWidget);
-    expect(find.text(quoteB.name), findsOneWidget);
+    expect(find.widgetWithText(QuoteButton, quoteOne.name), findsOneWidget);
+    expect(find.widgetWithText(QuoteButton, quoteTwo.name), findsOneWidget);
   });
 
   testWidgets('can play back quotes', (WidgetTester tester) async {
-    final app = App(testQuotes);
+    const app = App(ALL_QUOTES);
     await tester.pumpWidget(app);
     expect(app.getAudioPlayerState(), null);
 
-    await tester.tap(find.text(quoteA.name));
+    await tester.tap(find.text(ALL_QUOTES[0].name));
     await tester.pumpAndSettle(const Duration(milliseconds: 500));
 
     expect(app.getAudioPlayerState(), PlayerState.PLAYING);
