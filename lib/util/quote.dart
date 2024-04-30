@@ -13,8 +13,9 @@ class Quote {
   final QuoteSource source;
   final String searchStr;
   final String imageName;
+  final String imagePath;
 
-  const Quote(this.filename, this.name, this.source, this.searchStr, [this.imageName]);
+  const Quote(this.filename, this.name, this.source, this.searchStr, [this.imageName, this.imagePath = 'assets/images']);
 
   bool containsSearchTerm(String searchTerm) {
     if (searchTerm.isEmpty) return true;
@@ -28,10 +29,10 @@ class Quote {
 
   AssetImage getImage() {
     if (imageName != null) {
-      return AssetImage('assets/images/$imageName.png');
+      return AssetImage('$imagePath/$imageName.png');
     }
 
-    return AssetImage('assets/images/${source.imageName}.png');
+    return AssetImage('$imagePath/${source.imageName}.png');
   }
 
   Future shareAudio(BuildContext context) async {

@@ -33,3 +33,5 @@ flutter:
   assets:
    - assets/
    - assets/images/
+   - test/assets/
+   - test/assets/images/

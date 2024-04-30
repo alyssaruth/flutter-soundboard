@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pocket_scat/util/quotes_list.dart';
 import 'package:pocket_scat/widget/app.dart';
 
-final testQuotes = ALL_QUOTES.sublist(0, 5);
-final quoteA = testQuotes[0];
-final quoteB = testQuotes[1];
+import '../util/test_quotes.dart';
+
+final quoteA = TEST_QUOTES[0];
+final quoteB = TEST_QUOTES[1];
 
 void main() {
   testWidgets('Should search quotes, and clear the search when cancelled', (WidgetTester tester) async {
-    await tester.pumpWidget(App(testQuotes));
+    await tester.pumpWidget(const App(TEST_QUOTES));
 
     expect(find.text(quoteA.name), findsOneWidget);
     expect(find.text(quoteB.name), findsOneWidget);
