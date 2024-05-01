@@ -4,15 +4,12 @@ import 'package:pocket_scat/util/injected_things.dart';
 
 import 'quote_source.dart';
 
-//Keep a reference to the latest audioPlayer so we can stop it if another quote is played in the meantime
-AudioPlayer _audioPlayer;
-
 class Quote {
   final String filename;
   final String name;
   final QuoteSource source;
   final String searchStr;
-  final String imageName;
+  final String? imageName;
 
   const Quote(this.filename, this.name, this.source, this.searchStr, [this.imageName]);
 
@@ -40,9 +37,9 @@ class Quote {
   }
 
   Future play() async {
-    await _audioPlayer?.stop();
-    _audioPlayer = await audioCache.play('$filename.wav');
+    await audioPlayer.stop();
+    await audioPlayer.play(AssetSource('$filename.wav'));
   }
 }
 
-PlayerState getPlaybackState() => _audioPlayer?.state;
+PlayerState getPlaybackState() => audioPlayer.state;

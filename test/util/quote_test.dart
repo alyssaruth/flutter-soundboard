@@ -1,4 +1,6 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:pocket_scat/util/injected_things.dart';
 import 'package:pocket_scat/util/quote.dart';
@@ -6,6 +8,9 @@ import 'package:pocket_scat/util/quote_category.dart';
 import 'package:pocket_scat/util/quote_source.dart';
 
 import 'mocks.dart';
+
+@GenerateNiceMocks([MockSpec<AudioPlayer>()])
+import 'quote_test.mocks.dart';
 
 void main() {
   const sourceA = QuoteSource('Fawlty Towers', QuoteCategory.SITCOM, 'fawlty_towers', 'basil manuel');
@@ -60,29 +65,27 @@ void main() {
   group('playback', () {
     test('should play the associated audio file', () async {
       const quote = Quote('file_name', 'Some text', sourceA, '');
-      audioCache = MockAudioCache();
+      audioPlayer = MockAudioPlayer();
       await quote.play();
 
-      verify(audioCache.play('file_name.wav'));
-      verifyNoMoreInteractions(audioCache);
+      verify(audioPlayer.play(AssetSource('file_name.wav')));
+      verifyNoMoreInteractions(audioPlayer);
     });
 
     test('should stop the previous audio player if it exists before playing a new sound', () async {
       const quoteOne = Quote('file_name', 'Some text', sourceA, '');
       const quoteTwo = Quote('other_file', 'Other text', sourceB, '');
 
-      audioCache = MockAudioCache();
-      final audioPlayer = MockAudioPlayer();
-
-      when(audioCache.play(any)).thenAnswer((_) => Future.value(audioPlayer));
+      audioPlayer = MockAudioPlayer();
 
       await quoteOne.play();
-      verify(audioCache.play('file_name.wav'));
+      verify(audioPlayer.play(AssetSource('file_name.wav')));
       verifyZeroInteractions(audioPlayer);
 
       await quoteTwo.play();
       verify(audioPlayer.stop());
-      verify(audioCache.play('other_file.wav'));
+      verify(audioPlayer.play(AssetSource('other_file.wav')));
+      verifyNoMoreInteractions(audioPlayer);
     });
   });
 
