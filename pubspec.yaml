@@ -4,23 +4,25 @@ description: goomba
 version: 3.0.0
 
 environment:
-  sdk: ">=2.6.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
   cupertino_icons: 1.0.2
-  audioplayers: 0.20.1
+  audioplayers: 5.1.0
   dart_random_choice: 0.1.0-nullsafety.0
   share: 2.0.1
 
 dev_dependencies:
+  flutter_test:
+    sdk: flutter
   integration_test:
     sdk: flutter
-  test: any
-  mockito: 5.1.0
-  flutter_launcher_icons: 0.9.2
+  build_runner: 2.4.6
+  mockito: 5.4.4
+  flutter_launcher_icons: 0.13.1
 
 flutter_icons:
   android: "launcher_icon"

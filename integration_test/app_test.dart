@@ -42,16 +42,16 @@ void main() {
   testWidgets('can play back quotes', (WidgetTester tester) async {
     const app = App(ALL_QUOTES);
     await tester.pumpWidget(app);
-    expect(app.getAudioPlayerState(), null);
+    expect(app.getAudioPlayerState(), PlayerState.stopped);
 
     await tester.tap(find.text(ALL_QUOTES[0].name));
     await tester.pumpAndSettle(const Duration(milliseconds: 500));
 
-    expect(app.getAudioPlayerState(), PlayerState.PLAYING);
+    expect(app.getAudioPlayerState(), PlayerState.playing);
 
     await tester.pumpAndSettle(const Duration(seconds: 3));
 
-    expect(app.getAudioPlayerState(), PlayerState.COMPLETED);
+    expect(app.getAudioPlayerState(), PlayerState.completed);
   });
 
   /**

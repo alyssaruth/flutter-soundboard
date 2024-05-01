@@ -1,6 +1,12 @@
 enum QuoteCategory { SITCOM, KIDS_TV }
 
-const Map<QuoteCategory, String> QuoteCategoryDesc = {
-  QuoteCategory.SITCOM: 'Sitcom',
-  QuoteCategory.KIDS_TV: 'Kids TV',
-};
+extension QuoteCategoryExt on QuoteCategory {
+  String description() {
+    switch (this) {
+      case QuoteCategory.SITCOM:
+        return 'Sitcom';
+      case QuoteCategory.KIDS_TV:
+        return 'Kids TV';
+    }
+  }
+}
