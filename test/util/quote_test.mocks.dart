@@ -7,8 +7,10 @@ import 'dart:async' as _i3;
 import 'dart:typed_data' as _i5;
 
 import 'package:audioplayers/audioplayers.dart' as _i2;
+import 'package:flutter/cupertino.dart' as _i7;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i4;
+import 'package:pocket_scat/util/file_sharer.dart' as _i6;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -407,6 +409,32 @@ class MockAudioPlayer extends _i1.Mock implements _i2.AudioPlayer {
         Invocation.method(
           #dispose,
           [],
+        ),
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
+}
+
+/// A class which mocks [FileSharer].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockFileSharer extends _i1.Mock implements _i6.FileSharer {
+  @override
+  _i3.Future<void> shareFile(
+    String? name,
+    String? filename,
+    _i7.BuildContext? context,
+    String? mimeType,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #shareFile,
+          [
+            name,
+            filename,
+            context,
+            mimeType,
+          ],
         ),
         returnValue: _i3.Future<void>.value(),
         returnValueForMissingStub: _i3.Future<void>.value(),
