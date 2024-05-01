@@ -66,9 +66,7 @@ void main() {
     void _verifyAudioPlayed(MockAudioPlayer audioPlayer, String assetName) {
       verify(audioPlayer.stop());
 
-      final source = verify(audioPlayer
-          .play(captureThat(isInstanceOf<AssetSource>())))
-          .captured;
+      final source = verify(audioPlayer.play(captureThat(isInstanceOf<AssetSource>()))).captured;
       expect((source.single as AssetSource).path, assetName);
 
       verifyNoMoreInteractions(audioPlayer);

@@ -223,8 +223,7 @@ class MockAudioPlayer extends _i1.Mock implements _i2.AudioPlayer {
       ) as _i3.Future<void>);
 
   @override
-  _i3.Future<void> setAudioContext(_i2.AudioContext? ctx) =>
-      (super.noSuchMethod(
+  _i3.Future<void> setAudioContext(_i2.AudioContext? ctx) => (super.noSuchMethod(
         Invocation.method(
           #setAudioContext,
           [ctx],
@@ -314,8 +313,7 @@ class MockAudioPlayer extends _i1.Mock implements _i2.AudioPlayer {
       ) as _i3.Future<void>);
 
   @override
-  _i3.Future<void> setReleaseMode(_i2.ReleaseMode? releaseMode) =>
-      (super.noSuchMethod(
+  _i3.Future<void> setReleaseMode(_i2.ReleaseMode? releaseMode) => (super.noSuchMethod(
         Invocation.method(
           #setReleaseMode,
           [releaseMode],

@@ -1,6 +1,5 @@
 enum QuoteCategory { SITCOM, KIDS_TV }
 
-
 extension QuoteCategoryExt on QuoteCategory {
   String description() {
     switch (this) {
