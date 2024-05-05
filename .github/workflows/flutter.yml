@@ -17,4 +17,9 @@ jobs:
     - run: dart format --line-length 120 --set-exit-if-changed .
     - run: flutter analyze
     - run: flutter test
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'zulu'
+        java-version: 17
     - run: flutter build apk
