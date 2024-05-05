@@ -45,5 +45,5 @@ The app is a lot more user-friendly if you normalise the various audio clips, so
 Run an emulator, then:
 
 ```bash
-flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart
+flutter test integration_test
 ```

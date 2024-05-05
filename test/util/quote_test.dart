@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:pocket_scat/util/file_sharer.dart';
-import 'package:pocket_scat/util/injected_things.dart';
+import 'package:pocket_scat/util/globals.dart';
 import 'package:pocket_scat/util/quote.dart';
 import 'package:pocket_scat/util/quote_category.dart';
 import 'package:pocket_scat/util/quote_source.dart';
