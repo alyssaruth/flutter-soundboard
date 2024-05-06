@@ -16,6 +16,7 @@ class SearchableQuotes extends StatefulWidget {
 class SearchableQuotesState extends State<SearchableQuotes> {
   final TextEditingController _filter = TextEditingController();
   final List<Quote> _allQuotes;
+  final FocusNode _searchFocus = FocusNode();
 
   List<Quote> _filteredQuotes = [];
   bool _searching = false;
@@ -29,28 +30,33 @@ class SearchableQuotesState extends State<SearchableQuotes> {
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
         title: _buildAppBar(),
-        leading: IconButton(icon: Icon(_searching ? Icons.close : Icons.search), onPressed: _searchPressed),
+        leading: IconButton(
+            icon: Icon(_searching ? Icons.close : Icons.search, semanticLabel: _searching ? 'Cancel search' : 'Search'),
+            onPressed: _searchPressed),
       ),
       body: GridView.count(
-          crossAxisCount: _computeColumnCount(context),
-          childAspectRatio: 1,
-          padding: const EdgeInsets.all(0),
-          children: _filteredQuotes.map((q) => QuoteButton(q)).toList()),
+        crossAxisCount: _computeColumnCount(context),
+        childAspectRatio: 1,
+        padding: const EdgeInsets.all(0),
+        children: _filteredQuotes.map((q) => QuoteButton(q)).toList(),
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: _randomPressed,
         child: const Icon(Icons.play_arrow),
+        tooltip: 'Play random quote',
       ));
 
   Widget _buildAppBar() {
     if (_searching) {
       return TextField(
           controller: _filter,
+          focusNode: _searchFocus,
           decoration: InputDecoration(
             prefixIcon: const Icon(Icons.search, color: Colors.white),
             hintText: 'Search...',
             suffixText: '${_filteredQuotes.length}',
           ),
-          autofocus: true,
           style: const TextStyle(color: Colors.white));
     } else {
       return const Text('Pocket Scat');
@@ -71,6 +77,9 @@ class SearchableQuotesState extends State<SearchableQuotes> {
       if (!_searching) {
         _filter.clear();
         _filteredQuotes = _allQuotes;
+        _searchFocus.unfocus();
+      } else {
+        _searchFocus.requestFocus();
       }
     });
   }

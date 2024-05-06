@@ -1,5 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:pocket_scat/util/globals.dart';
 import 'package:pocket_scat/util/quote.dart';
 
 import 'searchable_quotes.dart';
@@ -20,4 +21,5 @@ class App extends StatelessWidget {
   }
 
   PlayerState getAudioPlayerState() => getPlaybackState();
+  Quote? getQuoteCurrentlyBeingShared() => quoteBeingShared;
 }
