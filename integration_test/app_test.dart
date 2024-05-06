@@ -45,11 +45,11 @@ void main() {
     expect(app.getAudioPlayerState(), PlayerState.stopped);
 
     await tester.tap(find.text(ALL_QUOTES[0].name));
-    await tester.pumpAndSettle(const Duration(milliseconds: 500));
+    await tester.pump(const Duration(milliseconds: 500));
 
     expect(app.getAudioPlayerState(), PlayerState.playing);
 
-    await tester.pumpAndSettle(const Duration(seconds: 3));
+    await tester.pumpAndSettle();
 
     expect(app.getAudioPlayerState(), PlayerState.completed);
   });
