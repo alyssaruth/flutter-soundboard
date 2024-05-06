@@ -4,13 +4,14 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i3;
-import 'dart:typed_data' as _i5;
+import 'dart:typed_data' as _i6;
 
 import 'package:audioplayers/audioplayers.dart' as _i2;
-import 'package:flutter/cupertino.dart' as _i7;
+import 'package:flutter/cupertino.dart' as _i8;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i4;
-import 'package:pocket_scat/util/file_sharer.dart' as _i6;
+import 'package:mockito/src/dummies.dart' as _i5;
+import 'package:pocket_scat/util/file_sharer.dart' as _i7;
+import 'package:share_plus/share_plus.dart' as _i4;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -37,6 +38,16 @@ class _FakeAudioCache_0 extends _i1.SmartFake implements _i2.AudioCache {
 
 class _FakeCompleter_1<T> extends _i1.SmartFake implements _i3.Completer<T> {
   _FakeCompleter_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeShareResult_2 extends _i1.SmartFake implements _i4.ShareResult {
+  _FakeShareResult_2(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -74,11 +85,11 @@ class MockAudioPlayer extends _i1.Mock implements _i2.AudioPlayer {
   @override
   String get playerId => (super.noSuchMethod(
         Invocation.getter(#playerId),
-        returnValue: _i4.dummyValue<String>(
+        returnValue: _i5.dummyValue<String>(
           this,
           Invocation.getter(#playerId),
         ),
-        returnValueForMissingStub: _i4.dummyValue<String>(
+        returnValueForMissingStub: _i5.dummyValue<String>(
           this,
           Invocation.getter(#playerId),
         ),
@@ -373,7 +384,7 @@ class MockAudioPlayer extends _i1.Mock implements _i2.AudioPlayer {
       ) as _i3.Future<void>);
 
   @override
-  _i3.Future<void> setSourceBytes(_i5.Uint8List? bytes) => (super.noSuchMethod(
+  _i3.Future<void> setSourceBytes(_i6.Uint8List? bytes) => (super.noSuchMethod(
         Invocation.method(
           #setSourceBytes,
           [bytes],
@@ -416,12 +427,12 @@ class MockAudioPlayer extends _i1.Mock implements _i2.AudioPlayer {
 /// A class which mocks [FileSharer].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockFileSharer extends _i1.Mock implements _i6.FileSharer {
+class MockFileSharer extends _i1.Mock implements _i7.FileSharer {
   @override
-  _i3.Future<void> shareFile(
+  _i3.Future<_i4.ShareResult> shareFile(
     String? name,
     String? filename,
-    _i7.BuildContext? context,
+    _i8.BuildContext? context,
     String? mimeType,
   ) =>
       (super.noSuchMethod(
@@ -434,7 +445,29 @@ class MockFileSharer extends _i1.Mock implements _i6.FileSharer {
             mimeType,
           ],
         ),
-        returnValue: _i3.Future<void>.value(),
-        returnValueForMissingStub: _i3.Future<void>.value(),
-      ) as _i3.Future<void>);
+        returnValue: _i3.Future<_i4.ShareResult>.value(_FakeShareResult_2(
+          this,
+          Invocation.method(
+            #shareFile,
+            [
+              name,
+              filename,
+              context,
+              mimeType,
+            ],
+          ),
+        )),
+        returnValueForMissingStub: _i3.Future<_i4.ShareResult>.value(_FakeShareResult_2(
+          this,
+          Invocation.method(
+            #shareFile,
+            [
+              name,
+              filename,
+              context,
+              mimeType,
+            ],
+          ),
+        )),
+      ) as _i3.Future<_i4.ShareResult>);
 }

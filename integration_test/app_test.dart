@@ -54,16 +54,15 @@ void main() {
     expect(app.getAudioPlayerState(), PlayerState.completed);
   });
 
-  /**
-   * TODO - Can't interact with native dialogs, so need to inject a mocked file sharer to test this
-   */
-  // testWidgets('can share quotes', (WidgetTester tester) async {
-  //   const app = App(TEST_QUOTES);
-  //   await tester.pumpWidget(app);
-  //
-  //   await tester.longPress(find.text('Piece of your brain'));
-  //   await tester.pumpAndSettle(const Duration(milliseconds: 2000));
-  //
-  //   expect(find.text('Share'), findsOneWidget);
-  // });
+  testWidgets('can share quotes', (WidgetTester tester) async {
+    final app = App(testQuotes);
+    await tester.pumpWidget(app);
+
+    expect(app.getQuoteCurrentlyBeingShared(), null);
+
+    await tester.longPress(find.text(ALL_QUOTES[0].name));
+    await tester.pumpAndSettle(const Duration(milliseconds: 1000));
+
+    expect(app.getQuoteCurrentlyBeingShared(), ALL_QUOTES[0]);
+  });
 }

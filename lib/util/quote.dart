@@ -1,6 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:pocket_scat/util/injected_things.dart';
+import 'package:pocket_scat/util/globals.dart';
 
 import 'quote_source.dart';
 
@@ -33,7 +33,9 @@ class Quote {
 
   Future shareAudio(BuildContext context) async {
     final fullFilename = '$filename.wav';
+    quoteBeingShared = this;
     await fileSharer.shareFile(name, fullFilename, context, 'media/wav');
+    quoteBeingShared = null;
   }
 
   Future play() async {
