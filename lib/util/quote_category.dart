@@ -13,3 +13,4 @@ extension QuoteCategoryExt on QuoteCategory {
         return 'Misc';
     }
   }
+}
