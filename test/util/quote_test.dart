@@ -1,11 +1,16 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:pocket_scat/util/injected_things.dart';
+import 'package:pocket_scat/util/file_sharer.dart';
+import 'package:pocket_scat/util/globals.dart';
 import 'package:pocket_scat/util/quote.dart';
 import 'package:pocket_scat/util/quote_category.dart';
 import 'package:pocket_scat/util/quote_source.dart';
-
 import 'mocks.dart';
+
+@GenerateNiceMocks([MockSpec<AudioPlayer>(), MockSpec<FileSharer>()])
+import 'quote_test.mocks.dart';
 
 void main() {
   const sourceA = QuoteSource('Fawlty Towers', QuoteCategory.TV, 'fawlty_towers', 'basil manuel');
@@ -58,31 +63,35 @@ void main() {
   });
 
   group('playback', () {
+    void _verifyAudioPlayed(MockAudioPlayer audioPlayer, String assetName) {
+      verify(audioPlayer.stop());
+
+      final source = verify(audioPlayer.play(captureThat(isInstanceOf<AssetSource>()))).captured;
+      expect((source.single as AssetSource).path, assetName);
+
+      verifyNoMoreInteractions(audioPlayer);
+    }
+
     test('should play the associated audio file', () async {
       const quote = Quote('file_name', 'Some text', sourceA, '');
-      audioCache = MockAudioCache();
-      await quote.play();
+      final mockAudioPlayer = MockAudioPlayer();
+      audioPlayer = mockAudioPlayer;
 
-      verify(audioCache.play('file_name.wav'));
-      verifyNoMoreInteractions(audioCache);
+      await quote.play();
+      _verifyAudioPlayed(mockAudioPlayer, 'file_name.wav');
     });
 
     test('should stop the previous audio player if it exists before playing a new sound', () async {
       const quoteOne = Quote('file_name', 'Some text', sourceA, '');
       const quoteTwo = Quote('other_file', 'Other text', sourceB, '');
 
-      audioCache = MockAudioCache();
-      final audioPlayer = MockAudioPlayer();
-
-      when(audioCache.play(any)).thenAnswer((_) => Future.value(audioPlayer));
+      final mockAudioPlayer = MockAudioPlayer();
+      audioPlayer = mockAudioPlayer;
 
       await quoteOne.play();
-      verify(audioCache.play('file_name.wav'));
-      verifyZeroInteractions(audioPlayer);
-
+      _verifyAudioPlayed(mockAudioPlayer, 'file_name.wav');
       await quoteTwo.play();
-      verify(audioPlayer.stop());
-      verify(audioCache.play('other_file.wav'));
+      _verifyAudioPlayed(mockAudioPlayer, 'other_file.wav');
     });
   });
 

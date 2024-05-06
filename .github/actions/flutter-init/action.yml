@@ -1,0 +1,20 @@
+name: 'Setup Flutter'
+description: 'Install flutter, Java 17 and grab project dependencies'
+runs:
+  using: "composite"
+  steps:
+    - uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.19.6'
+        channel: 'stable'
+
+    # Needed due to https://github.com/incrediblezayed/file_saver/issues/86
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'zulu'
+        java-version: 17
+
+    - name: Install dependencies
+      run: flutter pub get
+      shell: bash

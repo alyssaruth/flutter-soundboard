@@ -1,8 +1,15 @@
-enum QuoteCategory { SKETCH, TV, GAME, KIDS_TV, MISC }
+enum QuoteCategory { SKETCH, TV, KIDS_TV, MISC }
 
-const Map<QuoteCategory, String> QuoteCategoryDesc = {
-  QuoteCategory.SKETCH: 'Sketches',
-  QuoteCategory.TV: 'TV',
-  QuoteCategory.KIDS_TV: 'Kids TV',
-  QuoteCategory.MISC: 'Misc',
-};
+extension QuoteCategoryExt on QuoteCategory {
+  String description() {
+    switch (this) {
+      case QuoteCategory.SKETCH:
+        return 'Sketches';
+      case QuoteCategory.TV:
+        return 'TV';
+      case QuoteCategory.KIDS_TV:
+        return 'Kids TV';
+      case QuoteCategory.MISC:
+        return 'Misc';
+    }
+  }
