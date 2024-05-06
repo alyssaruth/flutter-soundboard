@@ -56,7 +56,7 @@ class SearchableQuotesState extends State<SearchableQuotes> {
           ),
           style: const TextStyle(color: Colors.white));
     } else {
-      return const Text('Pocket Scat');
+      return const Text('Soundboard');
     }
   }
 
