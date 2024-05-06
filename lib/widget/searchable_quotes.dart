@@ -30,14 +30,17 @@ class SearchableQuotesState extends State<SearchableQuotes> {
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
         title: _buildAppBar(),
-        leading: IconButton(icon: Icon(_searching ? Icons.close : Icons.search, semanticLabel: _searching ? 'Cancel search' : 'Search'), onPressed: _searchPressed),
+        leading: IconButton(
+            icon: Icon(_searching ? Icons.close : Icons.search, semanticLabel: _searching ? 'Cancel search' : 'Search'),
+            onPressed: _searchPressed),
       ),
       body: GridView.count(
-          crossAxisCount: _computeColumnCount(context),
-          childAspectRatio: 1,
-          padding: const EdgeInsets.all(0),
-          children: _filteredQuotes.map((q) => QuoteButton(q)).toList(),
-          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,),
+        crossAxisCount: _computeColumnCount(context),
+        childAspectRatio: 1,
+        padding: const EdgeInsets.all(0),
+        children: _filteredQuotes.map((q) => QuoteButton(q)).toList(),
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: _randomPressed,
         child: const Icon(Icons.play_arrow),
