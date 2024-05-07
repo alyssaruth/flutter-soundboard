@@ -78,7 +78,7 @@ void main() {
       audioPlayer = mockAudioPlayer;
 
       await quote.play();
-      _verifyAudioPlayed(mockAudioPlayer, 'file_name.wav');
+      _verifyAudioPlayed(mockAudioPlayer, 'file_name.mp3');
     });
 
     test('should stop the previous audio player if it exists before playing a new sound', () async {
@@ -89,9 +89,9 @@ void main() {
       audioPlayer = mockAudioPlayer;
 
       await quoteOne.play();
-      _verifyAudioPlayed(mockAudioPlayer, 'file_name.wav');
+      _verifyAudioPlayed(mockAudioPlayer, 'file_name.mp3');
       await quoteTwo.play();
-      _verifyAudioPlayed(mockAudioPlayer, 'other_file.wav');
+      _verifyAudioPlayed(mockAudioPlayer, 'other_file.mp3');
     });
   });
 
@@ -103,7 +103,7 @@ void main() {
 
       await quote.shareAudio(buildContext);
 
-      verify(fileSharer.shareFile('Some text', 'file_name.wav', buildContext, 'media/wav'));
+      verify(fileSharer.shareFile('Some text', 'file_name.mp3', buildContext, 'audio/mpeg'));
     });
   });
 }

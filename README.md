@@ -27,7 +27,7 @@ This will prompt you to install asdf and set up the required plugins.
 
 If you want to fork this project to make your own custom list of quotes, then you'll need:
 
- - Some audio clips that you want to play
+ - Some audio clips that you want to play, in MP3 format
  - Images for the clips. 
      - At least one per 'source' of audio, but can add more if you want more granularity than that 
      - Must be square, at least 200x200 pixels in size and in PNG format.
