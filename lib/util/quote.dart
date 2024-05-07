@@ -32,15 +32,15 @@ class Quote {
   }
 
   Future shareAudio(BuildContext context) async {
-    final fullFilename = '$filename.wav';
+    final fullFilename = '$filename.mp3';
     quoteBeingShared = this;
-    await fileSharer.shareFile(name, fullFilename, context, 'media/wav');
+    await fileSharer.shareFile(name, fullFilename, context, 'audio/mpeg');
     quoteBeingShared = null;
   }
 
   Future play() async {
     await audioPlayer.stop();
-    await audioPlayer.play(AssetSource('$filename.wav'));
+    await audioPlayer.play(AssetSource('$filename.mp3'));
   }
 }
 
