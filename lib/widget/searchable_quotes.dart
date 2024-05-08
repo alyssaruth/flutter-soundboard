@@ -2,6 +2,7 @@ import 'package:dart_random_choice/dart_random_choice.dart';
 import 'package:flutter/material.dart';
 import 'package:pocket_scat/util/quote.dart';
 
+import '../util/globals.dart';
 import 'quote_button.dart';
 
 class SearchableQuotes extends StatefulWidget {
@@ -59,7 +60,7 @@ class SearchableQuotesState extends State<SearchableQuotes> {
           ),
           style: const TextStyle(color: Colors.white));
     } else {
-      return const Text('No More Quotes');
+      return const Text(APP_NAME);
     }
   }
 
