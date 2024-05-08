@@ -12,7 +12,7 @@ A simple soundboard app, with:
  - 'Play random' floating action button, which will play a random quote of those returned by the current search
  - Ability to share a quote (e.g. to WhatsApp) by long-pressing on it
 
-## Setup
+## Dev Setup
 
 This project uses [asdf](https://asdf-vm.com/) to manage the necessary tools. To get set up, run
 (from the root of the repo):
@@ -21,16 +21,30 @@ This project uses [asdf](https://asdf-vm.com/) to manage the necessary tools. To
 ./init-asdf.sh
 ```
 
-This will prompt you to install asdf and set up the required plugins.
+This will prompt you to install asdf and set up the required plugins. Once flutter is setup, run `flutter pub get` to grab the project dependencies.
  
-## Data entry
+## Making the App your own :art:
 
-If you want to fork this project to make your own custom list of quotes, then you'll need:
+If you want to fork this project to make your own soundboard, here are all the things you might want to change and how to do it.
 
- - Some audio clips that you want to play, in MP3 format
+ - App icon: This project uses [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons) for this. To change it, edit the corresponding section in `pubspec.yaml` then run:
+
+```bash
+flutter pub run flutter_launcher_icons
+```
+
+ - Splash screen: This project uses [flutter_native_splash](https://pub.dev/packages/flutter_native_splash). There is again a section of pubspec to update, after which you should run:
+
+```bash
+dart run flutter_native_splash:create
+```
+
+ - App name: Search+replace the string YOUR_NAME_HERE
+ - Audio clips: These should be in mp3 format and added to the root of the assets/ folder
  - Images for the clips. 
      - At least one per 'source' of audio, but can add more if you want more granularity than that 
-     - Must be square, at least 200x200 pixels in size and in PNG format.
+     - Must be square, at least 200x200 pixels in size and in PNG format. Add to assets/images/
+ - Quote metadata is all joined up in `quotes_list.dart`
 
 ## Audio normalisation
 
