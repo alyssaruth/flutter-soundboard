@@ -32,8 +32,8 @@ flutter_icons:
 
 flutter_native_splash:
   color: "#5D3FD3"
-  branding: assets/splash/bean-bottom-right.png
-  branding_mode: bottomRight
+  branding: assets/splash/alex-in-chair.png
+  branding_mode: bottomLeft
 
 # The following section is specific to Flutter.
 flutter:
