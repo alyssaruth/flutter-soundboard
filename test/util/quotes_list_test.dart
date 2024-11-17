@@ -25,7 +25,7 @@ void main() {
     final directory = Directory('$assetFolderPath/assets');
     final assets = directory.listSync(recursive: true);
     for (final asset in assets) {
-      final path = asset.path.replaceFirst('$assetFolderPath/', '');
+      final path = asset.path.replaceFirst('$assetFolderPath/', '').replaceAll('\\', '/');
 
       if (path.endsWith('.mp3')) {
         final quotes = ALL_QUOTES.where((quote) => 'assets/${quote.filename}.mp3' == path);
