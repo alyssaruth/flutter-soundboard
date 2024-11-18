@@ -1,0 +1,19 @@
+name: Normalise audio
+on:
+  workflow_dispatch:
+
+jobs:
+  normalise-audio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install normalize-audio
+        run: sudo apt-get install -y normalize-audio
+      - name: Run script
+        run: ./scripts/normalise_audio.sh
+      - name: commit
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: 'assets/*'
+          message: "Update audio files"
