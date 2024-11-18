@@ -1,0 +1,19 @@
+name: Build release APK
+on:
+  workflow_dispatch:
+
+jobs:
+  build-release-apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/flutter-init
+      - name: Build release APK
+        run: flutter build apk --release
+      - name: Export artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-apk
+          path: |
+            /home/runner/**/build/app/outputs/apk/release/*.apk
