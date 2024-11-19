@@ -60,9 +60,26 @@ const List<Quote> ALL_QUOTES = [
   Quote('ghosts_moonah', 'Moonah', SRC_GHOSTS, 'moonah v2', 'ghosts_robin'),
   Quote('ghosts_order', 'Order', SRC_GHOSTS, 'order v2'),
   Quote('ghosts_prawn_go_dooka_dooka', 'Prawn go...', SRC_GHOSTS, 'prawn go dooka gooka v2', 'ghosts_robin'),
-  Quote('mandalorian_i_have_spoken', 'I have spoken', SRC_MANDALORIAN, 'i have spoken'),
-  Quote('mandalorian_i_have_spoken_kuiil', 'I have spoken (Kuiil)', SRC_MANDALORIAN, 'i have spoken'),
-  Quote('taskmaster_barge_pole', 'Barge pole', SRC_TASKMASTER, 'one on a barge pole for me'),
+  Quote('mandalorian_i_have_spoken', 'I have spoken', SRC_MANDALORIAN, 'i have spoken v2'),
+  Quote('mandalorian_i_have_spoken_kuiil', 'I have spoken (Kuiil)', SRC_MANDALORIAN, 'i have spoken v2'),
+  Quote('mandalorian_this_is_the_way', 'This is the way', SRC_MANDALORIAN, 'this is the way v2'),
+  Quote('star_wars_death_sticks', 'Death sticks', SRC_STAR_WARS, 'you dont want to sell me death sticks v2'),
+  Quote('star_wars_its_a_trap', 'It\'s a trap!', SRC_STAR_WARS, 'its a trap v2'),
+  Quote('star_wars_order_66', 'Order 66', SRC_STAR_WARS, 'execute order 66 v2'),
+  Quote('star_wars_these_arent_the_droids', 'Droids', SRC_STAR_WARS, 'these arent the droids youre looking for v2'),
+  Quote(
+      'taskmaster_all_the_information', 'All the information', SRC_TASKMASTER, 'all the information is on the task v2'),
+  Quote('taskmaster_all_the_information_2', 'All the information 2', SRC_TASKMASTER,
+      'all the information is on the task v2'),
+  Quote('taskmaster_barge_pole', 'Barge pole', SRC_TASKMASTER, 'one on a barge pole for me v2'),
+  Quote('taskmaster_whats_the_situation', 'What\'s the situation?', SRC_TASKMASTER, 'whats the situation v2'),
+  Quote('frank_damage', 'I\'ll pay for any damage', SRC_SOME_MOTHERS, 'ill pay for any damage v2'),
+  Quote('frank_legs_apart', 'Legs apart', SRC_SOME_MOTHERS, 'legs apart v2'),
+  Quote('frank_oh_betty', 'Oh Betty!', SRC_SOME_MOTHERS, 'oh betty v2'),
+  Quote('qi_acropolis_1', 'Acopolis 1', SRC_QI, 'they say of the acropolis where the parthenon is v2'),
+  Quote('qi_acropolis_2', 'Acopolis 1', SRC_QI, 'they say of the acropolis where the parthenon is v2'),
+  Quote('qi_acropolis_3', 'Acopolis 1', SRC_QI, 'they say of the acropolis where the parthenon is v2'),
+  Quote('qi_klaxon', 'Klaxon', SRC_QI, 'klaxon v2'),
 
   // Misc
   Quote('bargain_hunt_swap', 'A negotiated swap', SRC_BARGAIN_HUNT, 'we have a swap we do love a swap negotiated swap'),
@@ -131,6 +148,8 @@ const List<Quote> ALL_QUOTES = [
       'would you believe it went in but it\'s its come out again'),
   Quote('ntnon_no_clues', 'No clues!', SRC_NTNON, 'ah no no clues'),
   Quote('lizzie_mcguire_sing_to_me_paulo', 'Sing to me Paulo', SRC_LIZZIE_MCGUIRE, 'sing to me paulo v2'),
+  Quote('peter_pan_another_cab', 'Another cab', SRC_PETER_PAN, 'another cab for you mr darling v2'),
+  Quote('peter_pan_give_me_the_sword', 'Give me the sword', SRC_PETER_PAN, 'give me the sword v2'),
 
   // Kids TV
   Quote('noahs_island_oisky_poisky', 'Oisky Poisky', SRC_NOAHS_ISLAND, 'oisky poisky'),

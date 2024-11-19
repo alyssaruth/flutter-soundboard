@@ -27,6 +27,8 @@ const QuoteSource SRC_B99 = QuoteSource('Brooklyn 99', QuoteCategory.TV, 'holt',
 const QuoteSource SRC_GHOSTS = QuoteSource('Ghosts', QuoteCategory.TV, 'ghosts_julian');
 const QuoteSource SRC_MANDALORIAN = QuoteSource('The Mandalorian', QuoteCategory.TV, 'mandalorian');
 const QuoteSource SRC_TASKMASTER = QuoteSource('Taskmaster', QuoteCategory.TV, 'taskmaster');
+const QuoteSource SRC_SOME_MOTHERS = QuoteSource('Some mothers do ave em', QuoteCategory.TV, 'frank');
+const QuoteSource SRC_QI = QuoteSource('QI', QuoteCategory.TV, 'qi');
 
 const QuoteSource SRC_BARGAIN_HUNT = QuoteSource('Bargain Hunt', QuoteCategory.MISC, 'bargain_hunt', 'tim wonnacott');
 const QuoteSource SRC_CABIN_PRESSURE =
@@ -40,6 +42,8 @@ const QuoteSource SRC_NTNON = QuoteSource('Not the Nine O\'Clock News', QuoteCat
 const QuoteSource SRC_NEWS = QuoteSource('News', QuoteCategory.MISC, 'election');
 const QuoteSource SRC_HARRY_POTTER = QuoteSource('Harry Potter', QuoteCategory.MISC, 'hp_harry');
 const QuoteSource SRC_LIZZIE_MCGUIRE = QuoteSource('Lizzie McGuire', QuoteCategory.MISC, 'lizzie_mcguire');
+const QuoteSource SRC_PETER_PAN = QuoteSource('Peter pan goes wrong', QuoteCategory.MISC, 'peter_pan');
+const QuoteSource SRC_STAR_WARS = QuoteSource('Star Wars', QuoteCategory.MISC, 'star_wars');
 
 const QuoteSource SRC_ANASTASIA = QuoteSource('Anastasia', QuoteCategory.KIDS_TV, 'anastasia');
 const QuoteSource SRC_NOAHS_ISLAND = QuoteSource('Noahs Island', QuoteCategory.KIDS_TV, 'sasha');
